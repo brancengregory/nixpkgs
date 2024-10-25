@@ -196,7 +196,7 @@ in with self; {
   SVM2CRMdata = derive2 { name="SVM2CRMdata"; version="1.30.0"; sha256="1rjkm6sdhwn4nhswqv5jhlqz4002grslz97lcp5k9i5bsl9yy5lf"; depends=[]; };
   SimBenchData = derive2 { name="SimBenchData"; version="1.6.0"; sha256="0jb82fb9mqiqh9b4nn2cryylzgk5g9yibcyin8wydmv4sk8xxm5w"; depends=[ExperimentHub S4Vectors]; };
   Single_mTEC_Transcriptomes = derive2 { name="Single.mTEC.Transcriptomes"; version="1.26.0"; sha256="1r4sal6cv91lp4sjxqqg291x1jv16iq0wi34wm0r0mjnfycw6x6n"; depends=[]; };
-  SingleCellMultiModal = derive2 { name="SingleCellMultiModal"; version="1.10.0"; sha256="0mjy130147sg1jp45niydrsinnxn6i9v4jjmlanwyf1kghl4hx7y"; depends=[AnnotationHub BiocFileCache BiocGenerics ExperimentHub HDF5Array Matrix MultiAssayExperiment S4Vectors SingleCellExperiment SpatialExperiment SummarizedExperiment]; };
+  SingleCellMultiModal = derive2 { name="SingleCellMultiModal"; version="1.10.1"; sha256="1zvzbhraj1h8dahkrqsfr5c8arlihn3j6z59blyqlgcmcwzpqqrs"; depends=[AnnotationHub BiocFileCache BiocGenerics ExperimentHub HDF5Array Matrix MultiAssayExperiment S4Vectors SingleCellExperiment SpatialExperiment SummarizedExperiment]; };
   SingleMoleculeFootprintingData = derive2 { name="SingleMoleculeFootprintingData"; version="1.6.0"; sha256="0mq5y03yzpxdhhlws9y3g9mz0kr3q3g38a566cvp18mmhxp3414k"; depends=[ExperimentHub]; };
   SomatiCAData = derive2 { name="SomatiCAData"; version="1.36.0"; sha256="1sshapw93rbiqn9i3rg3xls7836hvg87qsl7awp17gzqlqap4331"; depends=[]; };
   SomaticCancerAlterations = derive2 { name="SomaticCancerAlterations"; version="1.34.0"; sha256="1zahhn2b10187hbljp9nppvr94iz067yasfgxalkhkxl09pdpksx"; depends=[GenomicRanges IRanges S4Vectors]; };
