@@ -387,7 +387,7 @@ in with self; {
   rheumaticConditionWOLLBOLD = derive2 { name="rheumaticConditionWOLLBOLD"; version="1.38.0"; sha256="0bnrkq6impb61fj6991290bji5dba4j11favykws668lj113wk9p"; depends=[]; };
   sampleClassifierData = derive2 { name="sampleClassifierData"; version="1.24.0"; sha256="0rm9q82iiii2rnq9pqy7a0c7pbw2vwwr5132vzvsr5x7q2xfwf8v"; depends=[SummarizedExperiment]; };
   scATAC_Explorer = derive2 { name="scATAC.Explorer"; version="1.6.0"; sha256="0y9ykfl20ffww51n45i8ljg3f2jz0lc20qp81q0q3rwy7wjz28iv"; depends=[BiocFileCache data_table Matrix S4Vectors SingleCellExperiment]; };
-  scMultiome = derive2 { name="scMultiome"; version="1.0.1"; sha256="1i2xh1vqz9388fwll639ilcrl47wgi8wfyfs416znn494qiwbbv2"; depends=[AnnotationHub AzureStor checkmate DelayedArray ExperimentHub GenomicRanges HDF5Array MultiAssayExperiment rhdf5 S4Vectors SingleCellExperiment SummarizedExperiment]; };
+  scMultiome = derive2 { name="scMultiome"; version="1.0.1"; sha256="character(0)"; depends=[AnnotationHub AzureStor checkmate DelayedArray ExperimentHub GenomicRanges HDF5Array MultiAssayExperiment rhdf5 S4Vectors SingleCellExperiment SummarizedExperiment]; };
   scRNAseq = derive2 { name="scRNAseq"; version="2.14.0"; sha256="0ch3fg4vzzqnk6l4m1clfgmh6jighqlnqzwh7w66hlkyjknpbbjd"; depends=[AnnotationDbi AnnotationHub BiocGenerics ensembldb ExperimentHub GenomicFeatures GenomicRanges S4Vectors SingleCellExperiment SummarizedExperiment]; };
   scTHI_data = derive2 { name="scTHI.data"; version="1.12.0"; sha256="1pfglyb12k5qv2xqbkzn87b4gg3v854mkw81k0wchmvqzr5v5m9h"; depends=[]; };
   scanMiRData = derive2 { name="scanMiRData"; version="1.6.0"; sha256="13krdxff0xwv179swy2dqfgfzpnp41d2khxm002hj5h4ra48p4gz"; depends=[scanMiR]; };
