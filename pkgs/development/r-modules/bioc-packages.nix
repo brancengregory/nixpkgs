@@ -376,7 +376,7 @@ in with self; {
   GEM = derive2 { name="GEM"; version="1.26.0"; sha256="1dr3d2jsbzk858wnbqgv2gy2qspx9sg49lmqvb8wl4m01jm3zbb4"; depends=[ggplot2]; };
   GENESIS = derive2 { name="GENESIS"; version="2.30.0"; sha256="0lbd8fqv3j1wkc17ah30ylfskj29cvb8d61xlja430kfkfky2n97"; depends=[Biobase BiocGenerics BiocParallel data_table gdsfmt GenomicRanges GWASTools igraph IRanges Matrix reshape2 S4Vectors SeqArray SeqVarTools SNPRelate]; };
   GENIE3 = derive2 { name="GENIE3"; version="1.22.0"; sha256="1q4wi3k95c8vsyfx6359p2p29ascjg1cxmpp9bf99ixbjs71rd33"; depends=[dplyr reshape2]; };
-  GEOexplorer = derive2 { name="GEOexplorer"; version="1.6.0"; sha256="1dh94sh3zypqkvgijmhi6jcsqnh5hha178vcmsk7xfbdrrqjcdva"; depends=[Biobase DT factoextra GEOquery ggplot2 heatmaply htmltools impute limma pheatmap plotly scales shiny shinyBS shinybusy shinyHeatmaply stringr umap]; };
+  GEOexplorer = derive2 { name="GEOexplorer"; version="1.6.0"; sha256="1dh94sh3zypqkvgijmhi6jcsqnh5hha178vcmsk7xfbdrrqjcdva"; depends=[Biobase DT factoextra GEOquery ggplot2 heatmaply htmltools impute limma maptools pheatmap plotly scales shiny shinyBS shinybusy shinyHeatmaply stringr umap]; };
   GEOfastq = derive2 { name="GEOfastq"; version="1.8.0"; sha256="0nb8a83i0v7pjrximzqjfrcflxdhbv7y2gjz9bcy20yvcgzi6pn8"; depends=[doParallel foreach plyr RCurl rvest stringr xml2]; };
   GEOmetadb = derive2 { name="GEOmetadb"; version="1.62.0"; sha256="0xlm1yf2n2wi8sy6b4l7bnkb5dzgd2nfnpp2wrxncp163rrxi40q"; depends=[GEOquery RSQLite]; };
   GEOquery = derive2 { name="GEOquery"; version="2.68.0"; sha256="1xyrfj8b7j2wdjlbmwhx1c0hfbvr7l7jxyw2v64fbw8604zprv4s"; depends=[Biobase curl data_table dplyr limma magrittr R_utils readr tidyr xml2]; };
@@ -1436,7 +1436,7 @@ in with self; {
   flowCore = derive2 { name="flowCore"; version="2.12.2"; sha256="1z3xsp1ymvdjhwcj5mkhl1d586rlr5i8vji9y5gs595w3naa4r0h"; depends=[BH Biobase BiocGenerics cpp11 cytolib matrixStats Rcpp RProtoBufLib S4Vectors]; };
   flowCut = derive2 { name="flowCut"; version="1.10.0"; sha256="0gfnc45yg6m6i4gkag65bkc3569441rrbyhi0xbxabrkb8m9a3f0"; depends=[Cairo e1071 flowCore flowDensity]; };
   flowCyBar = derive2 { name="flowCyBar"; version="1.36.0"; sha256="0rl1xmil6197pkmwkmvcvscsw7b0bp4ljrj3zjrihpjjq5x7fivw"; depends=[gplots vegan]; };
-  flowDensity = derive2 { name="flowDensity"; version="1.34.0"; sha256="1g71sng0f53z6i8vsfirb0qpxadd4vcrmhcfndh88avphrp2i1i5"; depends=[car flowCore flowViz flowWorkspace gplots RFOC sp]; };
+  flowDensity = derive2 { name="flowDensity"; version="1.34.0"; sha256="1g71sng0f53z6i8vsfirb0qpxadd4vcrmhcfndh88avphrp2i1i5"; depends=[car flowCore flowViz flowWorkspace gplots RFOC rgeos sp]; };
   flowFP = derive2 { name="flowFP"; version="1.58.0"; sha256="1c7j84ax36ybxs7qpkcnxggv4ajzh4dip76caaq7qw8fyyd9cdy4"; depends=[Biobase BiocGenerics flowCore flowViz]; };
   flowGate = derive2 { name="flowGate"; version="1.0.0"; sha256="0wkmpzrbv8bkh9b7glgh5zzncij4511wx5a59g4i5q2w9c3vw8bc"; depends=[BiocManager dplyr flowCore flowWorkspace ggcyto ggplot2 purrr rlang shiny tibble]; };
   flowGraph = derive2 { name="flowGraph"; version="1.8.0"; sha256="1kx01vzh5qrpsdqqmrkdjfkcvb1bilbvbx632dd4qdcsxizmj3bb"; depends=[data_table effsize furrr future ggiraph ggplot2 ggrepel gridExtra htmlwidgets igraph Matrix matrixStats purrr Rdpack stringi stringr visNetwork]; };
