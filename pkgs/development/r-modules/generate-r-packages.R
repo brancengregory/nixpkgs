@@ -2,20 +2,14 @@
 library(data.table)
 library(parallel)
 library(BiocManager)
-cl <- makeCluster(10)
+cl <- makeCluster(4)
 
-biocVersion <- BiocManager:::.version_map()
-biocVersion <- biocVersion[biocVersion$R == getRversion()[, 1:2],c("Bioc", "BiocStatus")]
-if ("release" %in% biocVersion$BiocStatus) {
-  biocVersion <-  as.numeric(as.character(biocVersion[biocVersion$BiocStatus == "release", "Bioc"]))
-} else {
-  biocVersion <-  max(as.numeric(as.character(biocVersion$Bioc)))
-}
+biocVersion <- "3.18"
 
-mirrorUrls <- list( bioc=paste0("http://bioconductor.statistik.tu-dortmund.de/packages/", biocVersion, "/bioc/src/contrib/")
-                  , "bioc-annotation"=paste0("http://bioconductor.statistik.tu-dortmund.de/packages/", biocVersion, "/data/annotation/src/contrib/")
-                  , "bioc-experiment"=paste0("http://bioconductor.statistik.tu-dortmund.de/packages/", biocVersion, "/data/experiment/src/contrib/")
-                  , cran="https://cran.r-project.org/src/contrib/"
+mirrorUrls <- list( bioc=paste0("http://bioconductor.org/packages/", biocVersion, "/bioc/src/contrib/")
+                  , "bioc-annotation"=paste0("http://bioconductor.org/packages/", biocVersion, "/data/annotation/src/contrib/")
+                  , "bioc-experiment"=paste0("http://bioconductor.org/packages/", biocVersion, "/data/experiment/src/contrib/")
+                  , cran="https://packagemanager.posit.co/cran/2023-12-30/src/contrib/"
                   )
 
 mirrorType <- commandArgs(trailingOnly=TRUE)[1]
@@ -54,7 +48,8 @@ nixPrefetch <- function(name, version) {
 }
 
 escapeName <- function(name) {
-    switch(name, "import" = "r_import", "assert" = "r_assert", name)
+  name <- gsub("\\bimport\\b", "r_import", name)
+  gsub("\\bassert\\b", "r_assert", name)
 }
 
 formatPackage <- function(name, version, sha256, depends, imports, linkingTo) {
