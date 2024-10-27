@@ -7525,7 +7525,7 @@ in with self; {
   cplexAPI = derive2 { name="cplexAPI"; version="1.4.0"; sha256="00h2zir1ffzjiglfyq8bsfmgq9z155jr0k0fxv8fsbfyw2x9dg10"; depends=[]; };
   cplm = derive2 { name="cplm"; version="0.7-9"; sha256="057m61rq2hzb55imj3922zmc9kjxh053k3kgy54a4l0jlxb90lyj"; depends=[biglm coda ggplot2 Matrix minqa nlme reshape2 statmod tweedie]; };
   cpm = derive2 { name="cpm"; version="2.3"; sha256="07zbvc5jkwv76lkzby6r073fxjsqgnrdl2w9lcph577knnip89jx"; depends=[]; };
-  cpp11 = derive2 { name="cpp11"; version="0.4.0"; sha256="1xx9b1z8f24h8p2f1hd3bfwny69ibbfpas2nn6f3yv75aia46ai7"; depends=[]; };
+  cpp11 = derive2 { name="cpp11"; version="0.4.2"; sha256="sha256-W074vbBZGYtLa4aQAL7Kmd0ts0u+l4PVxDRxh1BCwdQ="; depends=[]; };
   cppRouting = derive2 { name="cppRouting"; version="2.0"; sha256="0yfiyg1clnl85lk5ah8dcchv71drk6r093vpl82xnczyan5z94sr"; depends=[data_table Rcpp RcppParallel RcppProgress]; };
   cpr = derive2 { name="cpr"; version="0.2.3"; sha256="1a2lza1bw74xzrs17a9gr9mnpvnnrykhwd73yqi63wp3k4sm42rb"; depends=[dplyr ggplot2 lazyeval lme4 magrittr plot3D Rcpp RcppArmadillo rgl tibble tidyr]; };
   cprobit = derive2 { name="cprobit"; version="1.0.2"; sha256="16fnndpkd226paahmadsddakj4yhybw7lp3csr73fwv78zfl2fj9"; depends=[car ggplot2 gridExtra nortest]; };
