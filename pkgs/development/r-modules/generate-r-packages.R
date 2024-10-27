@@ -9,7 +9,7 @@ biocVersion <- "3.14"
 mirrorUrls <- list( bioc=paste0("http://bioconductor.org/packages/", biocVersion, "/bioc/src/contrib/")
                   , "bioc-annotation"=paste0("http://bioconductor.org/packages/", biocVersion, "/data/annotation/src/contrib/")
                   , "bioc-experiment"=paste0("http://bioconductor.org/packages/", biocVersion, "/data/experiment/src/contrib/")
-                  , cran="https://packagemanager.posit.co/cran/2022-01-16/src/contrib/"
+                  , cran="https://packagemanager.posit.co/cran/2021-10-28/src/contrib/"
                   )
 
 mirrorType <- commandArgs(trailingOnly=TRUE)[1]
