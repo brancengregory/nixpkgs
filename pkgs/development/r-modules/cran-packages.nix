@@ -5425,7 +5425,7 @@ in with self; {
   UpSetR = derive2 { name="UpSetR"; version="1.4.0"; sha256="007i0njnjjy7vbrxabwav7a1kk2n0hn2mkvqsdzzfk10ckp5y7im"; depends=[ggplot2 gridExtra plyr scales]; };
   UsingR = derive2 { name="UsingR"; version="2.0-6"; sha256="0mwzwg11hi741z9511638cvlhls7aiy2jjgmsdc9swhc4vvs3ckc"; depends=[HistData Hmisc MASS]; };
   UtilityFrailtyPH12 = derive2 { name="UtilityFrailtyPH12"; version="1.0"; sha256="06f5gmwwk1r14ab6v5jcxz0pmdph7ffi4y57mjg9byn7pjnibflk"; depends=[bindata mvtnorm Phase123 Rcpp RcppArmadillo]; };
-  V8 = derive2 { name="V8"; version="4.0.0"; sha256="04qwymh6lcqawr3paqb6z9l23m1a2f70ly4znqpfplvjx976i9mp"; depends=[curl jsonlite Rcpp]; };
+  V8 = derive2 { name="V8"; version="3.4.2"; sha256="0wi68h0kj98z7agpsfwqv79msv2m6dl9aj5msha6bxz5pgshqss0"; depends=[curl jsonlite Rcpp]; };
   VALERIE = derive2 { name="VALERIE"; version="1.1.0"; sha256="15z8234jhh7hv3gijrvy8hap6gdgvm6qll9b00qbji7vyc3dg4pg"; depends=[GenomicAlignments GenomicRanges ggplot2 ggplotify ggpubr IRanges pheatmap plyr Rsamtools scales]; };
   VAM = derive2 { name="VAM"; version="1.0.0"; sha256="04lq8i4zwdc9a4n4hvabdyv4a4cmmqbf534cdnnck7jc0dk5rphr"; depends=[MASS Matrix]; };
   VAR_etp = derive2 { name="VAR.etp"; version="0.7"; sha256="0py5my3ilhcmz44m15hh0d219l9cz7rda4a9gbmf8wh9cgvvj1s3"; depends=[]; };
@@ -15471,7 +15471,7 @@ in with self; {
   rstac = derive2 { name="rstac"; version="0.9.1-4"; sha256="04a864dddyhhglyi9vci56fi007pn82ch2j7bq6dfd7bpv3i42yh"; depends=[crayon httr jsonlite magrittr]; };
   rstack = derive2 { name="rstack"; version="1.0.0"; sha256="19vbfmkd6ymadah1y1w5rn52f4hviddccyc6qj2cv5viqwbwws2z"; depends=[R6]; };
   rstackdeque = derive2 { name="rstackdeque"; version="1.1.1"; sha256="0i1qqbfj0yrqbkad8bqc1qlxmyxpn7zycbnq83cdmfbilcmi87ql"; depends=[]; };
-  rstan = derive2 { name="rstan"; version="2.21.2"; sha256="0n2xmgr4mxymxnw966nh5p5asyvbvjgcl87rdc3d7d8dbqjyms6s"; depends=[BH ggplot2 gridExtra inline loo pkgbuild Rcpp RcppEigen RcppParallel StanHeaders V8 withr]; };
+  rstan = derive2 { name="rstan"; version="2.21.3"; sha256="0x4n9rzij6ky2b6hbiik3wlczwgj1f1mhswzcag7vs47f48vynyk"; depends=[BH ggplot2 gridExtra inline loo pkgbuild Rcpp RcppEigen RcppParallel StanHeaders]; };
   rstanarm = derive2 { name="rstanarm"; version="2.21.1"; sha256="04ggzak3f7jaxza3dxyrmxp5b48qcgyspy22ykbhr03g4hzp7jk8"; depends=[bayesplot BH ggplot2 lme4 loo Matrix nlme Rcpp RcppEigen RcppParallel rstan rstantools shinystan StanHeaders survival]; };
   rstanemax = derive2 { name="rstanemax"; version="0.1.3"; sha256="0myxcqwpk4zq5y1ri14rbsbb19kr8g7fd3mfdsn8vh2yi5xlcqk1"; depends=[BH dplyr ggplot2 magrittr purrr Rcpp RcppEigen rstan rstantools StanHeaders tidyr]; };
   rstantools = derive2 { name="rstantools"; version="2.1.1"; sha256="0b9x8rzj3dr4m7yjx476nn42z22xd1xnw85m9frfwxy5ivg1any9"; depends=[desc Rcpp RcppParallel]; };
