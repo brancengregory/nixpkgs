@@ -5425,7 +5425,7 @@ in with self; {
   UpSetR = derive2 { name="UpSetR"; version="1.4.0"; sha256="007i0njnjjy7vbrxabwav7a1kk2n0hn2mkvqsdzzfk10ckp5y7im"; depends=[ggplot2 gridExtra plyr scales]; };
   UsingR = derive2 { name="UsingR"; version="2.0-6"; sha256="0mwzwg11hi741z9511638cvlhls7aiy2jjgmsdc9swhc4vvs3ckc"; depends=[HistData Hmisc MASS]; };
   UtilityFrailtyPH12 = derive2 { name="UtilityFrailtyPH12"; version="1.0"; sha256="06f5gmwwk1r14ab6v5jcxz0pmdph7ffi4y57mjg9byn7pjnibflk"; depends=[bindata mvtnorm Phase123 Rcpp RcppArmadillo]; };
-  V8 = derive2 { name="V8"; version="3.4.2"; sha256="0wi68h0kj98z7agpsfwqv79msv2m6dl9aj5msha6bxz5pgshqss0"; depends=[curl jsonlite Rcpp]; };
+  V8 = derive2 { name="V8"; version="4.0.0"; sha256="04qwymh6lcqawr3paqb6z9l23m1a2f70ly4znqpfplvjx976i9mp"; depends=[curl jsonlite Rcpp]; };
   VALERIE = derive2 { name="VALERIE"; version="1.1.0"; sha256="15z8234jhh7hv3gijrvy8hap6gdgvm6qll9b00qbji7vyc3dg4pg"; depends=[GenomicAlignments GenomicRanges ggplot2 ggplotify ggpubr IRanges pheatmap plyr Rsamtools scales]; };
   VAM = derive2 { name="VAM"; version="1.0.0"; sha256="04lq8i4zwdc9a4n4hvabdyv4a4cmmqbf534cdnnck7jc0dk5rphr"; depends=[MASS Matrix]; };
   VAR_etp = derive2 { name="VAR.etp"; version="0.7"; sha256="0py5my3ilhcmz44m15hh0d219l9cz7rda4a9gbmf8wh9cgvvj1s3"; depends=[]; };
