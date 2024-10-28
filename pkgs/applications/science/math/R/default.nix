@@ -32,7 +32,20 @@ stdenv.mkDerivation rec {
   patches = [
     ./no-usr-local-search-paths.patch
     ./skip-check-for-aarch64.patch
-  ];
+  ] ++ lib.optionals (!withRecommendedPackages) [
+    (fetchpatch {
+       name = "fix-tests-without-recommended-packages.patch";
+       url = "https://github.com/wch/r-source/commit/7715c67cabe13bb15350cba1a78591bbb76c7bac.patch";
+       # this part of the patch reverts something that was committed after R 4.1.0, so ignore it.
+       excludes = [ "tests/Pkgs/xDir/pkg/DESCRIPTION" ];
+       sha256 = "sha256-iguLndCIuKuCxVCi/4NSu+9RzBx5JyeHx3K6IhpYshQ=";
+    })
+    (fetchpatch {
+      name = "use-codetools-conditionally.patch";
+      url = "https://github.com/wch/r-source/commit/7543c28b931db386bb254e58995973493f88e30d.patch";
+      sha256 = "sha256-+yHXB5AItFyQjSxfogxk72DrSDGiBh7OiLYFxou6Xlk=";
+    })
+];
 
   # Test of the examples for package 'tcltk' fails in Darwin sandbox. See:
   # https://github.com/NixOS/nixpkgs/issues/146131
@@ -94,6 +107,11 @@ stdenv.mkDerivation rec {
   preCheck = "export TZ=CET; bin/Rscript -e 'sessionInfo()'";
 
   enableParallelBuilding = true;
+
+  # disable stackprotector on aarch64-darwin for now
+  # https://github.com/NixOS/nixpkgs/issues/158730
+  # see https://github.com/NixOS/nixpkgs/issues/127608 for a similar issue
+  hardeningDisable = lib.optionals (stdenv.isAarch64 && stdenv.isDarwin) [ "stackprotector" ];
 
   setupHook = ./setup-hook.sh;
 
