@@ -59,7 +59,7 @@ jobs:
 
 
       - name: Update quarto
-        run: git apply https://github.com/NixOS/nixpkgs/commit/c274e99d107ba9898f2a448abb3a62bc3535ac39.patch
+        run: curl https://github.com/NixOS/nixpkgs/commit/c274e99d107ba9898f2a448abb3a62bc3535ac39.patch | git apply 
         
       - name: Updating files
         run: |
