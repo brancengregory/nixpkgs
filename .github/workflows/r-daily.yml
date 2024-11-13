@@ -80,8 +80,11 @@ jobs:
         run: |
           wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/bioc_patch.patch
 
+      - name: Get patch to pdate R to 4.4.2
+        run: wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/r_442.patch 
+
       - name: Update R to 4.4.2
-        run: curl https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/refs/heads/r-daily/r_422.patch | git apply
+        run: git apply r_442.patch
      
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
