@@ -80,12 +80,11 @@ jobs:
         run: |
           wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/bioc_patch.patch
 
-      - name: Get patch to pdate R to 4.4.2
-        run: wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/r_442.patch 
-
       - name: Update R to 4.4.2
-        run: git apply r_442.patch
-     
+        run: |
+          sed 's|sha256 = "sha256-tMtnXequtymdOyZdIYzeQ/GSlRzluJt7saUUijay2U0=";|sha256 = "sha256-FXjNYD6NhmtYdD5J2L+ZxWnoEHm2pgzzPN973/64F+w=";|' pkgs/applications/science/math/R/default.nix
+          sed 's|version = "4.4.1";|version = "4.4.2";|' pkgs/applications/science/math/R/default.nix
+
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
         with:
