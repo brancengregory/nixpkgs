@@ -58,8 +58,8 @@ jobs:
           ' pkgs/development/r-modules/default.nix
 
 
-      - name: Update quarto
-        run: curl https://github.com/NixOS/nixpkgs/commit/c274e99d107ba9898f2a448abb3a62bc3535ac39.patch | git apply 
+      #- name: Update quarto
+      #  run: curl https://github.com/NixOS/nixpkgs/commit/c274e99d107ba9898f2a448abb3a62bc3535ac39.patch | git apply 
         
       - name: Updating files
         run: |
