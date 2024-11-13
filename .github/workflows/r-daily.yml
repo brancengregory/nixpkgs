@@ -82,8 +82,8 @@ jobs:
 
       - name: Update R to 4.4.2
         run: |
-          sed 's|sha256 = "sha256-tMtnXequtymdOyZdIYzeQ/GSlRzluJt7saUUijay2U0=";|sha256 = "sha256-FXjNYD6NhmtYdD5J2L+ZxWnoEHm2pgzzPN973/64F+w=";|' pkgs/applications/science/math/R/default.nix
-          sed 's|version = "4.4.1";|version = "4.4.2";|' pkgs/applications/science/math/R/default.nix
+          sed -i 's|sha256 = "sha256-tMtnXequtymdOyZdIYzeQ/GSlRzluJt7saUUijay2U0=";|sha256 = "sha256-FXjNYD6NhmtYdD5J2L+ZxWnoEHm2pgzzPN973/64F+w=";|' pkgs/applications/science/math/R/default.nix
+          sed -i 's|version = "4.4.1";|version = "4.4.2";|' pkgs/applications/science/math/R/default.nix
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
