@@ -1097,7 +1097,7 @@ let
     });
 
     collapse = old.collapse.overrideAttrs (attrs: {
-      preConfigure = "patchShebangs configure";
+      preConfigure = "patchShebangs src/Makevars";
     });
 
     clustermq = old.clustermq.overrideAttrs (attrs: {
