@@ -10537,7 +10537,7 @@ in with self; {
   isni = derive2 { name="isni"; version="1.2"; sha256="1nw7i20fli3sg1g1dl17g8rz5bpx49gcmlyw4nvfyhdxqr38nb0r"; depends=[Formula lme4 matrixcalc mixor mvtnorm nlme nnet]; };
   isnullptr = derive2 { name="isnullptr"; version="1.0.1"; sha256="0kwjxq59n3qncdw63vsdvz7v5mzbl5lmckdfgiiw35pzmahnxzh9"; depends=[]; };
   isoSurv = derive2 { name="isoSurv"; version="0.2.0"; sha256="1y6wdmxzzdl1dkvab72s2smm3brqfl0y3b9al8fnj3h2b8lw502j"; depends=[Iso survival]; };
-  isoband = derive2 { name="isoband"; version="0.2.4"; sha256="0z1qpxcl8b6fi691fbdr3vrb19mn4pas1iff62zl1bafzbdvpmcn"; depends=[]; };
+  isoband = derive2 { name="isoband"; version="0.2.5"; sha256="19bbi0n0kz33xdgmdprcmc6raphd1hcm1w1brc16z5phcsh3zxa6"; depends=[]; };
   isoboost = derive2 { name="isoboost"; version="1.0.1"; sha256="1c239l9rfjr8scpfq5c9rl55jabk64jchcdndjsb9s5qyx2x0qdr"; depends=[Iso isotone rpart]; };
   isocat = derive2 { name="isocat"; version="0.2.6"; sha256="1d6pi2l1lfi4226890lsfa02v0df1mc8gi214icsbk4fid4jygsx"; depends=[foreach magrittr plyr raster sp]; };
   isocir = derive2 { name="isocir"; version="2.0-6"; sha256="0dkxdx2g1c579q97r45shws2gylkwqlvrhmc14ddmzi45xhxlql6"; depends=[circular combinat TSP]; };
