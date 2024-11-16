@@ -4,12 +4,12 @@ library(parallel)
 library(BiocManager)
 cl <- makeCluster(4)
 
-biocVersion <- "3.14"
+biocVersion <- "3.13"
 
 mirrorUrls <- list( bioc=paste0("http://bioconductor.org/packages/", biocVersion, "/bioc/src/contrib/")
                   , "bioc-annotation"=paste0("http://bioconductor.org/packages/", biocVersion, "/data/annotation/src/contrib/")
                   , "bioc-experiment"=paste0("http://bioconductor.org/packages/", biocVersion, "/data/experiment/src/contrib/")
-                  , cran="https://packagemanager.posit.co/cran/2021-08-03/src/contrib/"
+                  , cran="https://packagemanager.posit.co/cran/2021-05-29/src/contrib/"
                   )
 
 mirrorType <- commandArgs(trailingOnly=TRUE)[1]
@@ -48,8 +48,7 @@ nixPrefetch <- function(name, version) {
 }
 
 escapeName <- function(name) {
-  name <- gsub("\\bimport\\b", "r_import", name)
-  gsub("\\bassert\\b", "r_assert", name)
+    switch(name, "import" = "r_import", "assert" = "r_assert", name)
 }
 
 formatPackage <- function(name, version, sha256, depends, imports, linkingTo) {
