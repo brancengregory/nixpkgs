@@ -319,6 +319,7 @@ let
 
   packagesWithNativeBuildInputs = {
     adbcpostgresql = [ pkgs.postgresql ];
+    collapse = [ pkgs.binutils ];
     adimpro = [ pkgs.imagemagick ];
     animation = [ pkgs.which ];
     Apollonius = with pkgs; [ pkg-config gmp mpfr ];
