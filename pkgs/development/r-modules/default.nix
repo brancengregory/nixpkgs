@@ -319,7 +319,6 @@ let
 
   packagesWithNativeBuildInputs = {
     adbcpostgresql = [ pkgs.postgresql ];
-    collapse = [ pkgs.binutils ];
     adimpro = [ pkgs.imagemagick ];
     animation = [ pkgs.which ];
     Apollonius = with pkgs; [ pkg-config gmp mpfr ];
@@ -1094,10 +1093,6 @@ let
 
     rzmq = old.rzmq.overrideAttrs (attrs: {
       preConfigure = "patchShebangs configure";
-    });
-
-    collapse = old.collapse.overrideAttrs (attrs: {
-      preConfigure = "patchShebangs src/Makevars";
     });
 
     clustermq = old.clustermq.overrideAttrs (attrs: {
