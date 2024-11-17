@@ -13802,7 +13802,7 @@ in with self; {
   rIntervalTree = derive2 { name="rIntervalTree"; version="0.1.0"; sha256="0xd6wcra4zvphfgnz1rnnslx96p840zlgms367370xm4hyg6d37x"; depends=[]; };
   rIsing = derive2 { name="rIsing"; version="0.1.0"; sha256="1208lwfk9j8gghj8xf6i8v6s18h89ydqsd4jq3r88n403yzbzzck"; depends=[data_table Rcpp RcppEigen]; };
   rJPSGCS = derive2 { name="rJPSGCS"; version="0.2-10"; sha256="0a00s10yp22fkvk67dkq43sbphcqla65x9j4qpv076bmdchn7arw"; depends=[chopsticks rJava]; };
-  rJava = derive2 { name="rJava"; version="0.9-13"; sha256="1gsk05wlyif76myn1i9hakd3zxv199fyyp7m80qpy0am8wapj2al"; depends=[]; };
+  rJava = derive2 { name="rJava"; version="1.0-4"; sha256="1rd9hcwp4464icy22mmis94jb9w5gk90h97j79cy6fixdxwq4ihx"; depends=[]; };
   rJython = derive2 { name="rJython"; version="0.0-4"; sha256="13fpcw37cca738v9idqgi3gv9avfkfwfacxj54p2c4wyg46ghnah"; depends=[rJava rjson]; };
   rKIN = derive2 { name="rKIN"; version="0.1"; sha256="1j6fdi5h869q4d1hq6ha6qyhisa0zk2qmhjrc4ahl9991d680dyn"; depends=[ggplot2 maptools MASS rgeos sp]; };
   rKOMICS = derive2 { name="rKOMICS"; version="1.0"; sha256="12wvb23ss4vfx15l6im8g2yqnbqv08mkwr2jkb8rdr9g1984lrlw"; depends=[ape circlize ComplexHeatmap dplyr factoextra FactoMineR ggplot2 ggpubr magrittr reshape2 stringr]; };
