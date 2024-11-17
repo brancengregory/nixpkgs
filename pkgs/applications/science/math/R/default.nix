@@ -31,7 +31,7 @@ stdenv.mkDerivation rec {
 
   patches = [
     ./no-usr-local-search-paths.patch
-    ./skip-check-for-aarch64.patch
+    #./skip-check-for-aarch64.patch
   ] ++ lib.optionals (!withRecommendedPackages) [
     (fetchpatch {
        name = "fix-tests-without-recommended-packages.patch";
