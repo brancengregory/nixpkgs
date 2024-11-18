@@ -16270,7 +16270,7 @@ in with self; {
   tester = derive2 { name="tester"; version="0.1.7"; sha256="1x5m43abk3x3fvb2yrb1xwa7rb4jxl8wjrnkyd899ii1kh8lbimr"; depends=[]; };
   testforDEP = derive2 { name="testforDEP"; version="0.2.0"; sha256="1mgzhj8b35r5cm4bl0nnyxj0h7rwd28d17qvgvaky2kvm2r83cf9"; depends=[Hmisc minerva Rcpp]; };
   testit = derive2 { name="testit"; version="0.12"; sha256="0zlfi443w7kls9djjzknsz07r80xmpi9zdpdsy09skrcqgcva0r5"; depends=[]; };
-  testthat = derive2 { name="testthat"; version="3.0.2"; sha256="017hs5fbw9zakcw9c3fxky913q6s0qxwi6yv7w14n70h1cyc9y3v"; depends=[brio callr cli crayon desc digest ellipsis evaluate jsonlite lifecycle magrittr pkgload praise processx ps R6 rlang waldo withr]; };
+  testthat = derive2 { name="testthat"; version="3.0.4"; sha256="00cxszryi9y8d1zmh6v2fk7xmyk1fh0insmxgp74cxzrvg0dk7ym"; depends=[brio callr cli crayon desc digest ellipsis evaluate jsonlite lifecycle magrittr pkgload praise processx ps R6 rlang waldo withr]; };
   testthis = derive2 { name="testthis"; version="1.1.1"; sha256="0csragn695698dpkr9d3md0g81bzpy5mybd0jik669q9cs8sdzh2"; depends=[assertthat devtools fs magrittr pkgload rprojroot stringi testthat usethis]; };
   testtwice = derive2 { name="testtwice"; version="1.0.3"; sha256="06fr13ww2wqk753p0cnl1ldn3nqrvdfnz0lgkpldcn0xwiwjh2x2"; depends=[mvtnorm]; };
   tetraclasse = derive2 { name="tetraclasse"; version="0.1.21"; sha256="1cl2cah0xi6x3rvvdy56iszai6rkbxc1w3x13v0l1z1nryff7c6a"; depends=[dplyr FactoMineR ggplot2 ggrepel magrittr reshape2 tibble tidyr]; };
