@@ -70,8 +70,8 @@ let
   deriveCran = mkDerive {
     mkHomepage = {name, ...}: "https://cran.r-project.org/web/packages/${name}/";
     mkUrls = {name, version}: [
-      "https://packagemanager.posit.co/cran/2021-08-03/src/contrib/${name}_${version}.tar.gz"
-      "https://packagemanager.posit.co/cran/2021-08-03/src/contrib/Archive/${name}/${name}_${version}.tar.gz"
+      "https://packagemanager.posit.co/cran/latest/src/contrib/${name}_${version}.tar.gz"
+      "https://packagemanager.posit.co/cran/latest/src/contrib/Archive/${name}/${name}_${version}.tar.gz"
     ];
   };
 
