@@ -9047,7 +9047,7 @@ in with self; {
   gapfill = derive2 { name="gapfill"; version="0.9.6-1"; sha256="15mrn44v5l4sgxwlyp1rik5mdg7m2s6xxcdigc3sjd1yhxalgw12"; depends=[fields foreach ggplot2 quantreg Rcpp]; };
   gapminder = derive2 { name="gapminder"; version="0.3.0"; sha256="067cra1ca4ngwjx8d1y9pyzwcpsfi1wcal0glzyy6ghd1k6jflpv"; depends=[tibble]; };
   garchx = derive2 { name="garchx"; version="1.2"; sha256="10z9kb80bcma3s54cp6r2c4v247ydf7fay3lb8hnqwcc5df76c6g"; depends=[zoo]; };
-  gargle = derive2 { name="gargle"; version="1.0.0"; sha256="1vv5im3l872cpzzha4is6gsp0gzif59hkk2ysh4kmsn1rpdh3v48"; depends=[fs glue httr jsonlite rlang withr]; };
+  gargle = derive2 { name="gargle"; version="1.0.0"; sha256="sha256-8P707oTkXTQu1IoRH47wu2mi6KmeXzG3sbyM5CCxWEM="; depends=[fs glue httr jsonlite rlang withr]; };
   gargoyle = derive2 { name="gargoyle"; version="0.0.1"; sha256="0lsjplfrc047lb3zjfsc8wl47kll7d85v824k7zlr0n34xbbypq7"; depends=[attempt shiny]; };
   garma = derive2 { name="garma"; version="0.9.7"; sha256="02jqlhafq6myk7v44cs0d34v30mjmh9bgq9a1arsrqi9ckk4g5ri"; depends=[BB crayon dfoptim FKF forecast GA ggplot2 lubridate nloptr pracma pso Rsolnp signal tswge zoo]; };
   garray = derive2 { name="garray"; version="1.1.2"; sha256="0s2dgi556x9jnhafvzz4qkxdbq9dm12gsvsqd2g9iy3468fx9flq"; depends=[]; };
