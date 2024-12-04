@@ -17006,7 +17006,7 @@ in with self; {
   surveyplanning = derive2 { name="surveyplanning"; version="4.0"; sha256="19ydgcwyvkhknf4qmlw7j25skcj9a4rd6s8j5n7bdqpljl60zync"; depends=[data_table laeken]; };
   surveysd = derive2 { name="surveysd"; version="1.3.0"; sha256="0d5xjdlccqaa1h437rz5zq6a829rpz426m55jgprhfpcps1wfhbk"; depends=[data_table ggplot2 laeken Rcpp]; };
   survidm = derive2 { name="survidm"; version="1.3.2"; sha256="0ass7ffpk70ph7dcdjm2f6xyzqaavlkhr1pcij2vcasiy4v1vyiv"; depends=[doParallel doRNG foreach ggplot2 gridExtra KernSmooth np plotly Rcpp survival TPmsm]; };
-  survival = derive2 { name="survival"; version="3.4-0"; sha256="059j05x4m65k005c0kzvfq1h1q93n9c8zshb8n6h0dwfjpq4aiwx"; depends=[Matrix]; };
+  survival = derive2 { name="survival"; version="3.4-0"; sha256="sha256-GSHKFOE3M052S4P2JAeAAjmveaiM7jvp0bFzyYuKT1w="; depends=[Matrix]; };
   survival_svb = derive2 { name="survival.svb"; version="0.0-2"; sha256="0x6h6a15n37fqi6hh4fy8qq6x6byc8zfas3ri59kjm9nmah2ppji"; depends=[glmnet Rcpp RcppEigen survival]; };
   survival666 = derive2 { name="survival666"; version="0.5"; sha256="11vs546lrbxnhpxjmwxhh2hnp6kwcf4hzgigi3x9525hr8n9cy01"; depends=[ggplot2 survival survminer]; };
   survivalAnalysis = derive2 { name="survivalAnalysis"; version="0.3.0"; sha256="00q7kfyh1h6wpw9nh3dcl46my1awz2ccwy6l9fca6xrfhkqs2x6x"; depends=[cowplot dplyr forcats ggplot2 gridExtra magrittr purrr rlang scales stringr survival survminer tibble tidyr tidytidbits]; };
