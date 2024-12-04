@@ -16366,7 +16366,7 @@ in with self; {
   spatPomp = derive2 { name="spatPomp"; version="0.29.0.0"; sha256="0yxihbbwrl0pd8apray8pnv8p3kg0h89drac9mcl30amzmal2ksa"; depends=[abind dplyr foreach magrittr pomp rlang stringr tidyr]; };
   spatgraphs = derive2 { name="spatgraphs"; version="3.2-2"; sha256="09bbcqgmbg6a65mnxivr4pghsanj22x1j0l4hq8bzpwgbas7byhy"; depends=[Matrix Rcpp]; };
   spathial = derive2 { name="spathial"; version="0.1.2"; sha256="1vwzcwpmx8kwv821vjf940qd5am3k0shf1s14jva71mgxs70ddmb"; depends=[class igraph irlba knitr MASS matrixStats pracma rmarkdown Rtsne]; };
-  spatial = derive2 { name="spatial"; version="7.3-15.1"; sha256="14gax8vjx7i6ix6x5xbslmxx0wn3w6rgpj5kmjy4k0h699qqlm5l"; depends=[]; };
+  spatial = derive2 { name="spatial"; version="7.3-15"; sha256="sha256-N8oAxRxkQpbNcdkh/rJPMU4T0t85FFP9Vez+55rdMJE="; depends=[]; };
   spatialCovariance = derive2 { name="spatialCovariance"; version="0.6-9"; sha256="1m86s9a059spp97y37dcirrgjshcqzpdj11cq92vji624w4nrhlb"; depends=[]; };
   spatialEco = derive2 { name="spatialEco"; version="1.3-7"; sha256="0yhv4amqwbmcx6anzyrsmlrk25ishdlwyigyw9snd9d2v5k88s1q"; depends=[MASS raster rgeos sf sp spatstat_core spatstat_geom spdep]; };
   spatialRF = derive2 { name="spatialRF"; version="1.1.3"; sha256="1ganbsp7krazl90mdlq23g227ixmxpk4yzxl47rayd431vg6fys1"; depends=[doParallel dplyr foreach ggplot2 huxtable magrittr patchwork ranger rlang tibble tidyr tidyselect viridis]; };
