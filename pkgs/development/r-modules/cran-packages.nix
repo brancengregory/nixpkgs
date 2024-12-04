@@ -6885,7 +6885,7 @@ in with self; {
   clampSeg = derive2 { name="clampSeg"; version="1.1-1"; sha256="11kb2i49cfbbmgivc35mvsj0v91374mnq4373cyg2ixg33pw05wq"; depends=[lowpassFilter stepR]; };
   clarifai = derive2 { name="clarifai"; version="0.4.2"; sha256="0igi4xl27nz0r85hpws2zfc2gn5z2nmywp3saxgp74mh2y99lg6s"; depends=[curl jsonlite]; };
   clarkeTest = derive2 { name="clarkeTest"; version="0.1.0"; sha256="0vbb3j9rnh42qyp78a4jykp7p560d0ryfp28xgvxax8h8hr80457"; depends=[]; };
-  class = derive2 { name="class"; version="7.3-20.1"; sha256="10b88sa40y29v4fvw5v58758yr32s7idncsarlcgvrq9lnzs08a4"; depends=[MASS]; };
+  class = derive2 { name="class"; version="7.3-20"; sha256="sha256-hHMPPx5YuT8Qv+Zqi9SriULozPh2t0i3OBNlUxVcWeo="; depends=[MASS]; };
   classGraph = derive2 { name="classGraph"; version="0.7-5"; sha256="19jb9jr1gfg4karymrbilh0zjrlsczhy2q03x5b0jxnh4ykhxfj8"; depends=[graph Rgraphviz]; };
   classInt = derive2 { name="classInt"; version="0.4-7"; sha256="0ykibllpl0c7c58ybwf6xlnwlz2714d1yizfq02g045pml1bfvdz"; depends=[class e1071 KernSmooth]; };
   classifierplots = derive2 { name="classifierplots"; version="1.4.0"; sha256="0agxm3vrbs8lqhk1xvfc3wzf0q0hxhgyp23j5qi5mi1drgnw1jj1"; depends=[caret data_table ggplot2 gridExtra png Rcpp ROCR]; };
