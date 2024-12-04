@@ -17236,7 +17236,7 @@ in with self; {
   term = derive2 { name="term"; version="0.3.4"; sha256="169q5q9v3x08ihkrgyr4h8nihqiqmyvdxpfpl3gp9zp038968pr1"; depends=[chk extras lifecycle purrr rlang universals vctrs]; };
   terminaldigits = derive2 { name="terminaldigits"; version="0.1.0"; sha256="07n574lrxyc700d9a8axi6dx01prnf13w64mw747a97hlnhp6bjx"; depends=[discretefit Rcpp]; };
   ternvis = derive2 { name="ternvis"; version="1.2"; sha256="057i6i3ygxrin0npc18gsg3dpdldzafyb5sr6lix5mhy6b09lkxf"; depends=[dichromat maps quadprog]; };
-  terra = derive2 { name="terra"; version="1.6-7"; sha256="1y7dl6bc53izd084wn0m22iidjw5laaiph1hp2cbzwsgf69skhvr"; depends=[Rcpp]; };
+  terra = derive2 { name="terra"; version="1.6-7"; sha256="sha256-NHDgMmSDah+enMECkna3SBAgBCRIkUvDlIzYFE86x9w="; depends=[Rcpp]; };
   terrainmeshr = derive2 { name="terrainmeshr"; version="0.1.0"; sha256="1xab6wzq2izzdvsss1rlgp5m3cn45naxhymq6cglipj0fd792jbr"; depends=[Rcpp]; };
   terrainr = derive2 { name="terrainr"; version="0.7.1"; sha256="0mcgvcyqpq10bdnrgdf7gvklv6zjkjnspzv4dzhlj80mha4i38qf"; depends=[base64enc ggplot2 glue httr magick png raster rlang sf terra unifir units]; };
   tessellation = derive2 { name="tessellation"; version="2.1.0"; sha256="0wn1mcazg7lq82mq43jcki6c9bjjb1wc4sdxp5fcqbfldjzpgvlk"; depends=[cxhull english hash interp R6 randomcoloR rgl Rvcg scales sets]; };
