@@ -10302,7 +10302,7 @@ in with self; {
   htmltab = derive2 { name="htmltab"; version="0.8.1"; sha256="012ihgv7m752lan3jhvxzqgdh0i45y201cd3qzp272p4c1vskvvs"; depends=[httr XML]; };
   htmltidy = derive2 { name="htmltidy"; version="0.5.0"; sha256="1djkjff3750fm1sp54kf9cjvsqz2x7ia1ns12h5vqqcvwzfd0701"; depends=[htmltools htmlwidgets Rcpp XML xml2]; };
   htmltools = derive2 { name="htmltools"; version="0.5.1.1"; sha256="11pskpczijylpfhaqafz8gn8g613siq83ik0g9956r7i1l7ndh4x"; depends=[base64enc digest rlang]; };
-  htmlwidgets = derive2 { name="htmlwidgets"; version="1.5.3"; sha256="0qsi6xqqb036p2xy4g8pw37wff24fma1gply8fci6r7rhfc8jq2x"; depends=[htmltools jsonlite yaml]; };
+  htmlwidgets = derive2 { name="htmlwidgets"; version="1.5.3"; sha256="sha256-AaWDMYLMIkvRAL4oFeV+Z7Uk3p8rsVQnh7bj0TA/Dyk="; depends=[htmltools jsonlite yaml]; };
   htree = derive2 { name="htree"; version="2.0.0"; sha256="15bi5c2p4aghihp3k12s78447j2x9hbsaq56b5lc8jmd1vf0jdwb"; depends=[]; };
   hts = derive2 { name="hts"; version="6.0.2"; sha256="06mmxdm7a2fb1r4mb2x12b00rnkaxlrmlkv5yizr3yixmn4is9wb"; depends=[forecast Matrix Rcpp RcppEigen SparseM]; };
   htsr = derive2 { name="htsr"; version="1.1.0"; sha256="0fzarpn7h6mbwk51vszvh7z70j8ay723qlz1biggzxpcpjcxvs3j"; depends=[DBI directlabels dplyr editData ggplot2 lubridate openair purrr raster RColorBrewer readr readxl RODBC RSQLite shiny stringr tibble WriteXLS zoo]; };
