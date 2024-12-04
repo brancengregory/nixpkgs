@@ -8782,7 +8782,7 @@ in with self; {
   fontHind = derive2 { name="fontHind"; version="0.1.1"; sha256="0qz3bj8vdy6jayy84p3vyxfwqll4v4qlklwq9wl981ii2k7g0vxf"; depends=[extrafont ggplot2 hrbrthemes]; };
   fontLiberation = derive2 { name="fontLiberation"; version="0.1.0"; sha256="1w1rl0g4ayyp8lwppmz9yzj9cizg7i50g07216jkm1q5w0is9pmc"; depends=[]; };
   fontMPlus = derive2 { name="fontMPlus"; version="0.1.1"; sha256="1hvviawbfs3m7mr46y2sjdxkksi10vpbnjic11rjaxqcy9a43f4y"; depends=[extrafont ggplot2 hrbrthemes]; };
-  fontawesome = derive2 { name="fontawesome"; version="0.2.0"; sha256="1dlabp5bxlmmda8jylbxrkirryax7ghsw8f635ghwswv1y6fhlp6"; depends=[htmltools rlang]; };
+  fontawesome = derive2 { name="fontawesome"; version="0.2.0"; sha256="sha256-1+PPKhY69o6OxR5eAeupl4/pxL4aMCD0ggAL8y19UZw="; depends=[htmltools rlang]; };
   fontcm = derive2 { name="fontcm"; version="1.1"; sha256="1z6b4qdgj5vhvjqj90sm1hp0fffi1vxzvq71p0flxybzyb7d15la"; depends=[]; };
   fontquiver = derive2 { name="fontquiver"; version="0.2.1"; sha256="0qv3i9hch7cygl9983s3w68wfh5qvym2jkm52pp06p6mq8a1i1wm"; depends=[fontBitstreamVera fontLiberation]; };
   foodingraph = derive2 { name="foodingraph"; version="0.1.0"; sha256="0v40yk7lx0zxvpd3vz48h5gzx8ds8v3l12i2r7v9safgfvip6fvn"; depends=[cowplot dplyr ggplot2 ggraph igraph labeling magrittr minerva rlang stringr tibble tidyr viridis]; };
