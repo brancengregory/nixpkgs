@@ -16741,7 +16741,7 @@ in with self; {
   txtq = derive2 { name="txtq"; version="0.2.4"; sha256="1fvjprcwfqbw9c4sqcxv8r0jgvqmkip6d86r3cgrhwyic1ndk1l5"; depends=[base64url filelock R6]; };
   typed = derive2 { name="typed"; version="0.0.1"; sha256="096rzsxjdycf55jx33cxk1284rzb2vcxvp298y4q6v9x0w36php3"; depends=[waldo]; };
   types = derive2 { name="types"; version="1.0.0"; sha256="01shcin8wjbhbmzl979fj3008xqxssw90g3bjg42cnjxkmnaql59"; depends=[]; };
-  tzdb = derive2 { name="tzdb"; version="0.1.0"; sha256="1l5cwzz9lx8g7vpadh9hbh87pmfi8lk1jvcs3b6dsi5jidbhs9a9"; depends=[]; };
+  tzdb = derive2 { name="tzdb"; version="0.1.0"; sha256="sha256-mFc/i3+SOeoqyQjr/XXaajEso5OCbHe8PeZS4Bt8Pew="; depends=[]; };
   tzupdater = derive2 { name="tzupdater"; version="0.1.2"; sha256="0s1simvn76m569iq24qb3w6xli0202cjf1jr3a4qy58fs4sda2kv"; depends=[]; };
   uCAREChemSuiteCLI = derive2 { name="uCAREChemSuiteCLI"; version="0.2.0"; sha256="1nccgkxv57inhgvgmhwm4fr8cp28sj8n83za5gam9xx1f42mzsqk"; depends=[ChemmineR usethis]; };
   uFTIR = derive2 { name="uFTIR"; version="0.1.2"; sha256="1ds2ip02f4jh2i0n9f22v4c62xr82cak69w7yjf1k014rzq1yp60"; depends=[raster Rcpp RcppArmadillo rgdal sp]; };
