@@ -13480,7 +13480,7 @@ in with self; {
   opentimsr = derive2 { name="opentimsr"; version="1.0.11"; sha256="1263sbwvc1przis6hkhpx6r649jmy9qq2zs079igf9j5ck3fcx61"; depends=[DBI Rcpp RSQLite]; };
   opentraj = derive2 { name="opentraj"; version="1.0"; sha256="13nqal96199l8vkgmkvl542ksnappkscb6rbdmdapxyi977qrgxk"; depends=[doParallel foreach maptools openair plyr raster reshape rgdal sp]; };
   opentripplanner = derive2 { name="opentripplanner"; version="0.3.1"; sha256="1bavs7k27zicsjvz65va45cpmmviddxsgqir0hvpl9z40ml1gnp0"; depends=[checkmate curl data_table geodist googlePolylines lubridate pbapply rjson sf sfheaders tibble]; };
-  openxlsx = derive2 { name="openxlsx"; version="4.2.5"; sha256="1c9q16qc3zgb2ig1f409q1adj0i9f92bfclk9z531nkba9divhw0"; depends=[Rcpp stringi zip]; };
+  openxlsx = derive2 { name="openxlsx"; version="4.2.5"; sha256="sha256-ZdBtKBm2Vqww/HhDfucSqD+1p6t1D1YmjlyeV4xYJRk="; depends=[Rcpp stringi zip]; };
   opera = derive2 { name="opera"; version="1.2.0"; sha256="0rb11fvm25gi55g0d9xa6hmk84iqbrlv5ix84kwbd2c0ph61qnsc"; depends=[alabama htmltools htmlwidgets pipeR rAmCharts Rcpp RcppEigen Rdpack]; };
   operator_tools = derive2 { name="operator.tools"; version="1.6.3"; sha256="1v4dg7xhz24dnp0zxn815x1405ig64ibii6y40la1gvmzcc41dz5"; depends=[]; };
   operators = derive2 { name="operators"; version="0.1-8"; sha256="0zgcv2q46qyqv4dhbd33s4044zjw38w8dqfpzs0c1lxjpkil3dnx"; depends=[]; };
