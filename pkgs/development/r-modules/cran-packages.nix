@@ -12801,7 +12801,7 @@ in with self; {
   nnGarrote = derive2 { name="nnGarrote"; version="1.0.4"; sha256="0km7vx9qkfijj2af5ma4q88mhgkrw361hpv3n8dyzpr8654hrw4v"; depends=[glmnet]; };
   nnTensor = derive2 { name="nnTensor"; version="1.1.7"; sha256="0xsn79mmd7snybkrvf9j6r218na8qqwszy6syyxvv5hdxci28k88"; depends=[fields ggplot2 plot3D rTensor tagcloud]; };
   nna = derive2 { name="nna"; version="0.0.2.1"; sha256="17cz1jf7iv61wspqldfdwbdjhlr0wq09idkzlivfb8aik5w9f0z5"; depends=[]; };
-  nnet = derive2 { name="nnet"; version="7.3-17.1"; sha256="0w3jqr1198ya487dv3vj2laznphcavl5ky4yj16km6hgymp51g5p"; depends=[]; };
+  nnet = derive2 { name="nnet"; version="7.3-17"; sha256="sha256-ZpP4X/d+sVSevKpnTWCIPxHQ56FA0mzgXq+KI74OAOo="; depends=[]; };
   nnfor = derive2 { name="nnfor"; version="0.9.6"; sha256="0bciy6k79g7abvj3pmmdc4wzg5mp11zgmdbx17x4by993p2clhw9"; depends=[forecast glmnet MASS neuralnet plotrix tsutils uroot]; };
   nngeo = derive2 { name="nngeo"; version="0.4.6"; sha256="082bsdar5nk2ah7wik4b6khf7x3279ym0hw42584miw2mim0v1yb"; depends=[data_table nabor sf units]; };
   nnlasso = derive2 { name="nnlasso"; version="0.3"; sha256="1n7karlmgq61z9ywfx9xb5wvmxx40ydpnzzazj1xr70qlv5m0qk4"; depends=[]; };
