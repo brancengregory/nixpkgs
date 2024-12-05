@@ -18956,7 +18956,7 @@ in with self; {
   wiqid = derive2 { name="wiqid"; version="0.3.3"; sha256="1h3jksil4gqvhicgk2n76hhip09fl0iwm3b14nrwch907bj6avsn"; depends=[coda HDInterval MASS mcmcOutput plotrix truncnorm]; };
   wiseR = derive2 { name="wiseR"; version="1.0.1"; sha256="187ylwhk06957x9zm5r0m6w9wg08im83myz3s4gr927ig8yv3b5f"; depends=[arules bnlearn DescTools dplyr DT graph HydeNet igraph linkcomm missRanger psych RBGL Rgraphviz rhandsontable rintrojs shiny shinyalert shinyBS shinycssloaders shinydashboard shinyWidgets visNetwork]; };
   withr = derive2 { name="withr"; version="2.5.0"; sha256="0wyrawylw1z2y6ykziwi7gh8hmp30gwmvhg7xlxkcsm3lv872ihg"; depends=[]; };
-  wk = derive2 { name="wk"; version="0.7.1"; sha256="1vv9rv7ldannyxdw6jw1nf4k2zyrvbiq3a06dsdkly53j9sfhfj5"; depends=[]; };
+  wk = derive2 { name="wk"; version="0.7.1"; sha256="sha256-5aV3LJgtqcQ1k87KubTy7bq3spC7bvwUCeq9pMTb04Q="; depends=[]; };
   wkNNMI = derive2 { name="wkNNMI"; version="1.0.0"; sha256="0qpl1b2134kz9mjl38w93lp3g6kpv9ygv9hygpssm845k02hkw7c"; depends=[foreach infotheo]; };
   wkb = derive2 { name="wkb"; version="0.4-0"; sha256="0mah538345npkb06bcj18mb6qnnx8nn7bdqmvqqpbawallh546a9"; depends=[sp]; };
   wktmo = derive2 { name="wktmo"; version="1.0.5"; sha256="05pjyk0xsdazbi1x7xfmg097ybybd60zmzzm7sch1ikp05hzn0wb"; depends=[]; };
