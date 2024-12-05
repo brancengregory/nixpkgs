@@ -2680,7 +2680,7 @@ in with self; {
   MARSS = derive2 { name="MARSS"; version="3.11.4"; sha256="0gn9hx8mbwg73kfyabcnykpfnzh0cdbnhylj5ybm22vl9h2cikm5"; depends=[KFAS mvtnorm nlme]; };
   MARSSVRhybrid = derive2 { name="MARSSVRhybrid"; version="0.1.0"; sha256="10b8d75q5hiqf8id1qsvjx379xyx4vphq5r1iwvykjaw4zxbyx65"; depends=[e1071 earth]; };
   MARVEL = derive2 { name="MARVEL"; version="1.4.0"; sha256="01mgwwidff25wzv0p7bazwpkrl6pg1yqvp4826g4sh3l3nkcb5d9"; depends=[ggplot2 Matrix plyr scales]; };
-  MASS = derive2 { name="MASS"; version="7.3-58.2"; sha256="0cwmkm5v3imq29ypg58kq88kfhr3k60azgxrjlwij1nmbr3fdlsl"; depends=[]; };
+  MASS = derive2 { name="MASS"; version="7.3-58.2"; sha256="sha256-tcCdU2jKQyuyHrtJl0M9vvso4ZF0hR4tg1i6sCrdeEs="; depends=[]; };
   MASSExtra = derive2 { name="MASSExtra"; version="1.2.1"; sha256="09vvrk87r6a8b2n1n0shrxj5i3pmqk6wclmbpqc79va5hrfy7v99"; depends=[demoKde MASS]; };
   MASSTIMATE = derive2 { name="MASSTIMATE"; version="2.0-1"; sha256="1dvidwjw4zgflms5njbd9n85g1gbgfg6hk0fb63q5n65iyxxfmyh"; depends=[]; };
   MAT = derive2 { name="MAT"; version="2.3.1"; sha256="1lb6bzyxnclfw4ndfby4zmqmihiqxgjszwwdx0jymgy02hc4kawg"; depends=[Rcpp RcppArmadillo]; };
