@@ -18919,7 +18919,7 @@ in with self; {
   whereami = derive2 { name="whereami"; version="0.2.0"; sha256="0sbqn7y7ar9cfy77vafkqy1rrc1g4wbl1shk3hakk2sfysr5w2sp"; depends=[cli jsonlite rstudioapi]; };
   whereport = derive2 { name="whereport"; version="0.1"; sha256="1gdqzr2hrnpxbwl7cfps4m3xja8wkgwfs50i2nailybympvdnxm4"; depends=[dplyr]; };
   whippr = derive2 { name="whippr"; version="0.1.2"; sha256="0z5jv4lndbzxb1dyv8a7isg6mxzjm4l9lymg88wx6vb41y7sg9ci"; depends=[broom cli dplyr ggplot2 glue lubridate magrittr minpack_lm nlstools patchwork pillar purrr readxl rlang stringr tibble tidyr usethis zoo]; };
-  whisker = derive2 { name="whisker"; version="0.4.1"; sha256="1sy9hqjsqp5a08yldq8zysranyxx0g7vyrq578fw0gn39bxlrab4"; depends=[]; };
+  whisker = derive2 { name="whisker"; version="0.4.1"; sha256="sha256-v1FRSUUIAy9orEHiEb2oDakIfGXHBo/90S8WZpvx8rw="; depends=[]; };
   whitebox = derive2 { name="whitebox"; version="2.2.0"; sha256="17vc7amn7gmzizjrya8cjnsj59ss39nii68jmndm4y5h5flm8kvh"; depends=[]; };
   whitechapelR = derive2 { name="whitechapelR"; version="0.3.0"; sha256="0mnq5m59mw8w5g1p0h2xzlz738j397b3444km59bm5yln3j0nsbi"; depends=[igraph plyr]; };
   whitening = derive2 { name="whitening"; version="1.4.0"; sha256="1jwivrh1fy7r5zzkz7dhg7wf1p8iad9xmwnvjs2jgxpckjihjjp4"; depends=[corpcor]; };
