@@ -18920,7 +18920,7 @@ in with self; {
   zoltr = derive2 { name="zoltr"; version="0.5.1"; sha256="12zh7y3pwidclscgvd0b0iaqq9j5y8mc8xd6pz4vs0jy5qs3ahar"; depends=[base64url dplyr httr jsonlite magrittr MMWRweek mockery readr rlang webmockr]; };
   zonator = derive2 { name="zonator"; version="0.6.0"; sha256="1plxchpd4ypp36phl13pi9yvlrqi3lk83lv5rldrhdqynhcgfw2k"; depends=[ggplot2 raster RColorBrewer reshape2 rgdal]; };
   zonebuilder = derive2 { name="zonebuilder"; version="0.0.2"; sha256="0mxf3dz0d6bi5wwjilqivdxhy5ypnq5svky8zygha0clv45l4dmn"; depends=[RColorBrewer sf]; };
-  zoo = derive2 { name="zoo"; version="1.8-11"; sha256="08ab4sc6ig0wkzx4frzvwyay0i2kdbiihn3w80ilkm8pgk6arsrh"; depends=[lattice]; };
+  zoo = derive2 { name="zoo"; version="1.8-11"; sha256="sha256-hI5Q+HWv4G8TQi4yFgCCsHJRWai+mCNO81hIDlcCnKU="; depends=[lattice]; };
   zooaRch = derive2 { name="zooaRch"; version="1.2"; sha256="0grc378xppv0303sf4flfqz5002vq5a23nzbq4bsff41rww7dihc"; depends=[ggplot2]; };
   zooimage = derive2 { name="zooimage"; version="5.5.2"; sha256="0ck8w0zb9l1n9xvjwqshq9q9l8pigy3yslq2hnfbgcwk17kk9mp8"; depends=[digest DT filehash jpeg MASS mda mlearning png shiny svDialogs svMisc tiff]; };
   zoolog = derive2 { name="zoolog"; version="1.1.0"; sha256="038mgpq1ja72gads2wdqvc75zbn236n8prwzvahjyydl4m4jkmyy"; depends=[Rdpack stringi]; };
