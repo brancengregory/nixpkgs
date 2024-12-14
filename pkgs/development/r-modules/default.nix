@@ -70,8 +70,8 @@ let
   deriveCran = mkDerive {
     mkHomepage = {name, ...}: "https://cran.r-project.org/web/packages/${name}/";
     mkUrls = {name, version}: [
-      "https://packagemanager.posit.co/cran/2024-02-29/src/contrib/${name}_${version}.tar.gz"
-      "https://packagemanager.posit.co/cran/2024-02-29/src/contrib/Archive/${name}/${name}_${version}.tar.gz"
+      "https://cran.r-project.org/src/contrib/${name}_${version}.tar.gz"
+      "https://cran.r-project.org/src/contrib/Archive/${name}/${name}_${version}.tar.gz"
     ];
   };
 
@@ -1256,6 +1256,10 @@ let
       preConfigure = ''
         export JAVA_CPPFLAGS=-I${pkgs.jdk}/include/
         export JAVA_HOME=${pkgs.jdk}
+        substituteInPlace R/zzz.R.in \
+          --replace ".onLoad <- function(libname, pkgname) {" \
+            ".onLoad <- function(libname, pkgname) {
+             Sys.setenv(\"JAVA_HOME\" = Sys.getenv(\"JAVA_HOME\", unset = \"${pkgs.jdk}\"))"
       '';
     });
 
