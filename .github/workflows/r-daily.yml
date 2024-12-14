@@ -142,3 +142,13 @@ jobs:
           git add .
           git commit -m "bioc-devel update" || echo "no updated R packages in this period"
           git push --force origin r-bioc-devel
+
+      - name: Getting today's date
+        run: echo "TODAYS_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+        
+      - name: Pushing updates to dated branch
+        run: |
+          git checkout -b ${{ env.TODAYS_DATE }}"
+          git add .
+          git commit -m "R CRAN and Bioc update" || echo "no updated R packages in this period"
+          git push --force origin ${{ env.TODAYS_DATE }}"
