@@ -1,6 +1,6 @@
 {
   "extraArgs": {
-    "biocVersion": "3.2"
+    "biocVersion": "3.20"
   },
   "packages": {
     "ABAData": {
