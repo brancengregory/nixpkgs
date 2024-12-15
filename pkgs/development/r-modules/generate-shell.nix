@@ -17,7 +17,6 @@ stdenv.mkDerivation {
         data_table
         parallel
         BiocManager
-        jsonlite
       ];
     })
   ];
