@@ -119,7 +119,7 @@ jobs:
           git push --force origin r-daily
 
       - name: Getting today's date
-        run: echo "TODAYS_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+        run: echo "TODAYS_DATE=$(date +'%Y/%m/%d')" >> $GITHUB_ENV
         
       - name: Pushing updates to dated branch
         run: |
