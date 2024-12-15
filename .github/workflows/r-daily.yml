@@ -118,15 +118,16 @@ jobs:
           git commit -m "daily update" || echo "no updated R packages in this period"
           git push --force origin r-daily
 
-      - name: Getting today's date
-        run: echo "TODAYS_DATE=$(date +'%Y/%m/%d')" >> $GITHUB_ENV
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
         
       - name: Pushing updates to dated branch
         run: |
-          git checkout -b ${{ env.TODAYS_DATE }}"
+          git checkout -b ${{ steps.date.outputs.date }}
           git add .
           git commit -m "R CRAN and Bioc update" || echo "no updated R packages in this period"
-          git push --force origin ${{ env.TODAYS_DATE }}"
+          git push --force origin ${{ steps.date.outputs.date }}
 
       # now update for bioc devel
       - name: Apply patch
