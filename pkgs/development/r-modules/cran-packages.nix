@@ -9477,7 +9477,7 @@ in with self; {
   implicitMeasures = derive2 { name="implicitMeasures"; version="0.2.0"; sha256="0w0dwnzfhw5v5j7q3zpfsca4ydmq7b9fzspvyf9sibyh587isb9c"; depends=[ggplot2 stringr tidyr xtable]; };
   implied = derive2 { name="implied"; version="0.3.1"; sha256="11mrvpsh9qc5a5s5mpbsksri6vx36ij1gvpli6lyz6dkg48a9kdn"; depends=[]; };
   implyr = derive2 { name="implyr"; version="0.3.0"; sha256="1i0m95azyi46wnh59dcs52l78i1yqy677rlr4b6c0r945m67advn"; depends=[assertthat DBI dbplyr dplyr rlang tidyselect]; };
-  r_import = derive2 { name="r_import"; version="1.1.0"; sha256="0vih2d9qx3g0f1ndj6w1gzwfl8mcf12c1aflhm4axlqy4sv80l2r"; depends=[]; };
+  r_import = derive2 { name="import"; version="1.1.0"; sha256="0vih2d9qx3g0f1ndj6w1gzwfl8mcf12c1aflhm4axlqy4sv80l2r"; depends=[]; };
   importar = derive2 { name="importar"; version="0.1.1"; sha256="0xv445fmjhsbdlsq03k2rlycnggn3rcyq5a49zrg4jvjamzr0rgr"; depends=[]; };
   importinegi = derive2 { name="importinegi"; version="1.1.2"; sha256="11mr3kw7y015w6892cz73qm77rhcsm86b4hlb34aqcbcqqqxlxrv"; depends=[data_table dplyr foreign haven rgdal]; };
   impressionist_colors = derive2 { name="impressionist.colors"; version="1.0"; sha256="03z5w7y7vbvlnn30r9y3ip93h364f87nhwdb9hcki26csiq2bnlv"; depends=[]; };
