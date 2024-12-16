@@ -10,6 +10,16 @@ jobs:
   trigger-other-repo-workflow:
     runs-on: ubuntu-latest
     steps:
+    - name: Determine Nix file to use
+      id: determine-file
+      run: |
+          year=$(echo "${{ github.ref_name }}" | cut -c1-4)
+          if [ "$year" -le 2020 ]; then
+              echo "darwin=macos-13" >> $GITHUB_ENV
+          else
+              echo "darwin=macos-14" >> $GITHUB_ENV
+          fi
+
       - name: Trigger workflow in another repository
         run: |
           curl -X POST \
@@ -20,6 +30,6 @@ jobs:
             "event_type": "trigger-workflow",
             "client_payload": {
               "ref_name": "${{ github.ref_name }}",
-              "platforms": ["ubuntu-latest", "macos-14"]
+              "platforms": ["ubuntu-latest", "${{ env.darwin }}"]
             }
           }'
