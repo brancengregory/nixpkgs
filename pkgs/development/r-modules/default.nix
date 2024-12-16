@@ -56,8 +56,11 @@ let
     mkUrls = {name, version, biocVersion}: [ "mirror://bioc/${biocVersion}/data/experiment/src/contrib/${name}_${version}.tar.gz" ];
   };
   deriveCran = mkDerive {
-    mkHomepage = {name, snapshot, ...}: "http://mran.revolutionanalytics.com/snapshot/${snapshot}/web/packages/${name}/";
-    mkUrls = {name, version, snapshot}: [ "http://mran.revolutionanalytics.com/snapshot/${snapshot}/src/contrib/${name}_${version}.tar.gz" ];
+    mkHomepage = {name, ...}: "https://cran.r-project.org/web/packages/${name}/";
+    mkUrls = {name, version}: [
+      "https://cran.r-project.org/src/contrib/${name}_${version}.tar.gz"
+      "https://cran.r-project.org/src/contrib/Archive/${name}/${name}_${version}.tar.gz"
+    ];
   };
 
   # Overrides package definitions with nativeBuildInputs.
