@@ -5,7 +5,7 @@
 stdenv.mkDerivation rec {
   pname = "udunits";
   version = "2.2.27.6";
-  
+
   src = fetchFromGitHub {
     owner = "Unidata";
     repo = "UDUNITS-2";
@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
     homepage = "https://www.unidata.ucar.edu/software/udunits/";
     description = "A C-based package for the programatic handling of units of physical quantities";
     license = licenses.bsdOriginal;
-    platforms = platforms.linux;
+    platforms = platforms.all;
     maintainers = with maintainers; [ pSub ];
   };
 }
