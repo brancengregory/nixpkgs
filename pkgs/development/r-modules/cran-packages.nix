@@ -5437,7 +5437,7 @@ in with self; {
   aspect = derive2 { name="aspect"; version="1.0-5"; sha256="0pbc0daxw20xcbgqyyd5gbs9kmbaf2dq8ajllx0mnfwdcak9jfgj"; depends=[]; };
   aspi = derive2 { name="aspi"; version="0.2.0"; sha256="0rhvxw243vvdv3hxa6pi343gcjc2cbxq1jzqirl9k1l4i3897l87"; depends=[]; };
   asremlPlus = derive2 { name="asremlPlus"; version="4.2-21"; sha256="1dcrh7fxw338h82pccl28hwv9cq0pcy9fs6b9snr4fxlgs146jnh"; depends=[dae doParallel dplyr foreach ggplot2 plyr RColorBrewer reshape stringr]; };
-  assert = derive2 { name="assert"; version="1.0.0"; sha256="0lpgv6x9haaya1ih6s4ibrdynn2k4vgmqj0x6qy4pdhj6x4pjjvc"; depends=[rlang]; };
+  r_assert = derive2 { name="assert"; version="1.0.0"; sha256="0lpgv6x9haaya1ih6s4ibrdynn2k4vgmqj0x6qy4pdhj6x4pjjvc"; depends=[rlang]; };
   assertable = derive2 { name="assertable"; version="0.2.7"; sha256="1npks9rcrnchmd0silq6qrvqkmdkp9fwjkyyvvp1lqjclyxk6vkk"; depends=[data_table]; };
   assertive = derive2 { name="assertive"; version="0.3-6"; sha256="02palil82idqhhshcdjsfsja9qkqnd0dczqzj5gbccy4hfg1c0y4"; depends=[assertive_base assertive_code assertive_data assertive_data_uk assertive_data_us assertive_datetimes assertive_files assertive_matrices assertive_models assertive_numbers assertive_properties assertive_reflection assertive_sets assertive_strings assertive_types knitr]; };
   assertive_base = derive2 { name="assertive.base"; version="0.0-7"; sha256="1xs3ysvj0z57c58jw57pckq2rynia6ks4rmjmc02alczhk54wbgh"; depends=[]; };
@@ -16440,4 +16440,3 @@ in with self; {
   zyp = derive2 { name="zyp"; version="0.10-1.1"; sha256="03cxpkfbhrx1fy8l0dl9a13ghz93cqq6877wa8rig09ksdiivaw9"; depends=[Kendall]; };
   zzlite = derive2 { name="zzlite"; version="0.1.2"; sha256="0vi1slx2s4r5zf82lazqv0c3m12xq73wlgsbz6af4y00h0bkr3ps"; depends=[httr jsonlite]; };
 }
-
