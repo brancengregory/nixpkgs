@@ -1067,6 +1067,13 @@ let
         '';
     });
 
+    collapse = old.collapse.overrideAttrs (attrs: {
+      nativeBuildInputs = [ pkgs.binutils ];
+      preConfigure = ''
+        patchShebangs configure
+        '';
+    });
+
     sf = old.sf.overrideAttrs (attrs: {
       configureFlags = [
         "--with-proj-lib=${pkgs.lib.getLib pkgs.proj}/lib"
