@@ -3,13 +3,13 @@ library(data.table)
 library(parallel)
 cl <- makeCluster(10)
 
-biocVersion <- 3.11
-snapshotDate <- "2020-08-20"
+biocVersion <- 3.12
+snapshotDate <- "2020-10-30"
 
 mirrorUrls <- list( bioc=paste0("http://bioconductor.org/packages/", biocVersion, "/bioc/src/contrib/")
                   , "bioc-annotation"=paste0("http://bioconductor.org/packages/", biocVersion, "/data/annotation/src/contrib/")
                   , "bioc-experiment"=paste0("http://bioconductor.org/packages/", biocVersion, "/data/experiment/src/contrib/")
-, cran = "https://packagemanager.posit.co/cran/2020-08-20/src/contrib/"
+, cran = "https://packagemanager.posit.co/cran/2020-10-30/src/contrib/"
                   )
 
 mirrorType <- commandArgs(trailingOnly=TRUE)[1]
