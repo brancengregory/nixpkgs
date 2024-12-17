@@ -15,9 +15,9 @@ jobs:
       run: |
           year=$(echo "${{ github.ref_name }}" | cut -c1-4)
           if [ "$year" -le 2020 ]; then
-              echo "platforms=['ubuntu-latest']" >> $GITHUB_ENV
+              echo 'platforms=["ubuntu-latest"]' >> $GITHUB_ENV
           else
-              echo "platforms=['ubuntu-latest', 'macos-14']" >> $GITHUB_ENV
+              echo 'platforms=["ubuntu-latest", "macos-14"]' >> $GITHUB_ENV
           fi
 
     - name: Trigger workflow in another repository
