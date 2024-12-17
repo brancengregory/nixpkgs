@@ -13584,6 +13584,8 @@ in
 
   leptonica = callPackage ../development/libraries/leptonica { };
 
+  lerc = callPackage ../development/libraries/lerc { };
+
   lib3ds = callPackage ../development/libraries/lib3ds { };
 
   lib3mf = callPackage ../development/libraries/lib3mf { };
