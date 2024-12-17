@@ -513,7 +513,7 @@ let
     units = [ pkgs.udunits ];
     unigd = [ pkgs.pkg-config ];
     vdiffr = [ pkgs.libpng ];
-    V8 = [ pkgs.nodejs.libv8 ];
+    V8 = [ pkgs.v8 ];
     XBRL = with pkgs; [ zlib libxml2 ];
     XLConnect = [ pkgs.jdk ];
     xml2 = [ pkgs.libxml2 ] ++ lib.optionals stdenv.hostPlatform.isDarwin [ pkgs.perl ];
@@ -1391,25 +1391,17 @@ let
       patches = [ ./patches/universalmotif.patch];
     });
 
-    V8 = old.V8.overrideAttrs (attrs: {
+    V8 = old.V8.overrideDerivation (attrs: {
       postPatch = ''
         substituteInPlace configure \
           --replace " -lv8_libplatform" ""
-        # Bypass the test checking if pointer compression is needed
-        substituteInPlace configure \
-          --replace "./pctest1" "true"
       '';
 
       preConfigure = ''
-        export INCLUDE_DIR=${pkgs.nodejs.libv8}/include
-        export LIB_DIR=${pkgs.nodejs.libv8}/lib
+        export INCLUDE_DIR=${pkgs.v8}/include
+        export LIB_DIR=${pkgs.v8}/lib
         patchShebangs configure
       '';
-
-      R_MAKEVARS_SITE = lib.optionalString (pkgs.stdenv.system == "aarch64-linux")
-        (pkgs.writeText "Makevars" ''
-          CXX14PICFLAGS = -fPIC
-        '');
     });
 
     acs = old.acs.overrideAttrs (attrs: {
