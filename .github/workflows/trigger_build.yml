@@ -15,9 +15,9 @@ jobs:
       run: |
           year=$(echo "${{ github.ref_name }}" | cut -c1-4)
           if [ "$year" -le 2020 ]; then
-              echo "darwin=macos-13" >> $GITHUB_ENV
+              echo "platforms= ['ubuntu-latest']" >> $GITHUB_ENV
           else
-              echo "darwin=macos-14" >> $GITHUB_ENV
+              echo "platforms= ['ubuntu-latest', 'macos-14']" >> $GITHUB_ENV
           fi
 
     - name: Trigger workflow in another repository
@@ -30,6 +30,6 @@ jobs:
           "event_type": "trigger-workflow",
           "client_payload": {
             "ref_name": "${{ github.ref_name }}",
-            "platforms": ["ubuntu-latest", "${{ env.darwin }}"]
+            "platforms": "${{ env.platforms }}"
           }
         }'
