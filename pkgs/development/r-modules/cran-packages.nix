@@ -6313,7 +6313,7 @@ in with self; {
   cold = derive2 { name="cold"; version="2.0-1"; sha256="143zmccaiijz4cfiwh1a48h95bqa0ypa9ivv43qkx9y55911a05x"; depends=[cubature MASS]; };
   colf = derive2 { name="colf"; version="0.1.3"; sha256="1av82yrp6csw7700ymipd02j73cmzn0apv7ykachjw09nzk86kvj"; depends=[nlsr]; };
   collUtils = derive2 { name="collUtils"; version="1.0.5"; sha256="0gbk3lrb2lwq2ixrpcngng6qz6axjb4iyqy5606x1zmjm71c060p"; depends=[Rcpp rJava]; };
-  collapse = derive2 { name="collapse"; version="1.2.1"; sha256="0mqdrbl25y6lwwws8qk2l42lzcy84mfx7ip1apl2vf82n42qwm78"; depends=[lfe Rcpp]; };
+  collapse = derive2 { name="collapse"; version="1.6.5"; sha256="0ijsp4azblyvgryx94ymfzcc6d5f3g794z8yv3amxsxmc8x2l8qy"; depends=[Rcpp]; };
   collapsibleTree = derive2 { name="collapsibleTree"; version="0.1.7"; sha256="0b65pbp1wnpsrayqi630ds4r98jvcvynnlp6wxdqrnnr9nzw5343"; depends=[data_tree htmlwidgets]; };
   collectArgs = derive2 { name="collectArgs"; version="0.4.0"; sha256="0fz5w1xsxiddzrwahrg50px4igyhd4plq655jaix6grancs7kvix"; depends=[magrittr]; };
   collections = derive2 { name="collections"; version="0.3.2"; sha256="1jg4y2s715b6lnwmnbkbi430a75kcwpdkdp8x3n4bxmgallkqcsh"; depends=[digest]; };
@@ -15785,4 +15785,3 @@ in with self; {
   zyp = derive2 { name="zyp"; version="0.10-1.1"; sha256="03cxpkfbhrx1fy8l0dl9a13ghz93cqq6877wa8rig09ksdiivaw9"; depends=[Kendall]; };
   zzlite = derive2 { name="zzlite"; version="0.1.2"; sha256="0vi1slx2s4r5zf82lazqv0c3m12xq73wlgsbz6af4y00h0bkr3ps"; depends=[httr jsonlite]; };
 }
-
