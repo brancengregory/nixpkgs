@@ -1794,6 +1794,9 @@ let
     });
 
     textshaping = old.textshaping.overrideAttrs (attrs: {
+      preConfigure = ''
+        patchShebangs configure
+      '';
       NIX_LDFLAGS = "-lfribidi -lharfbuzz";
     });
 
