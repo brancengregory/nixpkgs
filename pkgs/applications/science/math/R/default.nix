@@ -11,11 +11,11 @@
 }:
 
 stdenv.mkDerivation rec {
-  name = "R-3.6.2";
+  name = "R-3.6.1";
 
   src = fetchurl {
     url = "https://cran.r-project.org/src/base/R-3/${name}.tar.gz";
-    sha256 = "0m69pfi0nxyriyb2yz74xfzaxwfkinnf9kpvf1rz727vvmfa8rdx";
+    sha256 = "128kifbq0w25y8aq77w289ddax5i5w2djcfsqgffrb3i7syrxajv";
   };
 
   dontUseImakeConfigure = true;
