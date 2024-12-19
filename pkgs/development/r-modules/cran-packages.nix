@@ -990,7 +990,7 @@ in with self; {
   DSsim = derive2 { name="DSsim"; version="1.1.5"; sha256="0dr8dc91m7s5c198k9cb26a09f14wb8ihr46c0mr9cg33l2wf3nv"; depends=[fields mgcv mrds rgeos shapefiles sp splancs]; };
   DStree = derive2 { name="DStree"; version="1.0"; sha256="14wba25ylmsyrndh007kl377dv4r34wr1555yxl6kyxrs4yg3jir"; depends=[Ecdat pec Rcpp rpart rpart_plot survival]; };
   DSviaDRM = derive2 { name="DSviaDRM"; version="1.0"; sha256="1hj2pgnldrpgapwwz1kf4k6mvyzwdvb1i6czd7sbimsx5hafwps8"; depends=[igraph ppcor]; };
-  DT = derive2 { name="DT"; version="0.12"; sha256="0x24wxm67ikb2kfdnz72gjwfjn2g60ir4lfmxa08ap1f9jai98xh"; depends=[crosstalk htmltools htmlwidgets jsonlite magrittr promises]; };
+  DT = derive2 { name="DT"; version="0.12"; sha256="sha256-I5kGqISkhf0J5QvxClImj2L/1LqVaUmcTZIFVRESCQE="; depends=[crosstalk htmltools htmlwidgets jsonlite magrittr promises]; };
   DTAT = derive2 { name="DTAT"; version="0.3-3"; sha256="03zm32dp4w6m1d95jn1wygk2qbd9lkn9ylshignvkrsyg81dk8qk"; depends=[data_table dplyr Hmisc jsonlite km_ci pomp r2d3 shiny survival]; };
   DTAXG = derive2 { name="DTAXG"; version="0.1.0"; sha256="1jxa0ix0z35i0xdnjl698j8iqjmp6nz8ckah9bap5ay9rkq0xd7f"; depends=[]; };
   DTComPair = derive2 { name="DTComPair"; version="1.0.3"; sha256="1af2293ckkpz0gjcibgzzvz37852cav4wa4girpc87yn3p4ajlri"; depends=[gee PropCIs]; };
