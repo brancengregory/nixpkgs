@@ -1775,10 +1775,6 @@ let
       NIX_LDFLAGS = "-lfribidi -lharfbuzz";
     });
 
-    later = old.later.overrideAttrs (attrs: {
-      patches = [ ./patches/fix-later.patch ];
-    });
-
     httpuv = old.httpuv.overrideAttrs (_: {
       preConfigure = ''
         patchShebangs configure
