@@ -3717,7 +3717,7 @@ in with self; {
   RcmdrPlugin_temis = derive2 { name="RcmdrPlugin.temis"; version="0.7.10"; sha256="02rs5xdj6g57frndc87fly0ans16584j4d0rfpy1h72655cz66ab"; depends=[ca lattice latticeExtra NLP R2HTML Rcmdr RColorBrewer slam stringi tcltk2 tm zoo]; };
   Rcolombos = derive2 { name="Rcolombos"; version="2.0.2"; sha256="0l92icjqqm5fxafqwd09lnmv5x6kvjdg8cphlm37q86nslwr5rkk"; depends=[httr]; };
   Rcplex = derive2 { name="Rcplex"; version="0.3-3"; sha256="0abmrqphrpdlc831hwbwx15z4vdgn385kxhnqlbb9v0sjmfyszsl"; depends=[slam]; };
-  Rcpp = derive2 { name="Rcpp"; version="1.0.3"; sha256="0h338gzdimxwhfdnr7cakiw4rw5jqn0799681afn28j891bc3b4b"; depends=[]; };
+  Rcpp = derive2 { name="Rcpp"; version="1.0.3"; sha256="sha256-KzUA3TrKFvezy1RCYl523PT3yXS0JJ0zBB6RhKX/Aw4="; depends=[]; };
   Rcpp11 = derive2 { name="Rcpp11"; version="3.1.2.0"; sha256="1x6n1z7kizagr5ymvbwqb7nyn3lca4d4m0ks33zhcn9gay6g0fac"; depends=[]; };
   RcppAPT = derive2 { name="RcppAPT"; version="0.0.5"; sha256="0c6imhf9bjr6g0n0pr1s3952jw7ry8q4b52yqdsy4s8if93jq3ha"; depends=[Rcpp]; };
   RcppAlgos = derive2 { name="RcppAlgos"; version="2.3.6"; sha256="13766y5p3c7r6nx3z87hjd0zd9dbmzshy1pha7y4xd4g98106csm"; depends=[gmp Rcpp RcppThread]; };
