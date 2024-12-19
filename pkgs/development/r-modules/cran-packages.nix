@@ -4409,7 +4409,7 @@ in with self; {
   Stack = derive2 { name="Stack"; version="2.0-1"; sha256="085bwmbjsnm9d1qyygv8pvhzm3dv5kny9zcxqic39d9pgfjlzc8p"; depends=[bit ff ffbase plyr stringr]; };
   StagedChoiceSplineMix = derive2 { name="StagedChoiceSplineMix"; version="1.0.0"; sha256="1ys8xgnl096xw4aymnj1cwvw5xsj9kv8lcbn25g1qjlvdxrwrx0z"; depends=[plyr]; };
   StakeholderAnalysis = derive2 { name="StakeholderAnalysis"; version="1.2"; sha256="164mah8h8izxaqp8hc43l6mlnf95pydkcx2laqrlqr9b0bybadxb"; depends=[]; };
-  StanHeaders = derive2 { name="StanHeaders"; version="2.19.2"; sha256="19mn9rwrddfa8zaf3kmadc61i2i3h4vyqkqkk4bx9il7znf2p2f5"; depends=[]; };
+  StanHeaders = derive2 { name="StanHeaders"; version="2.19.2"; sha256="sha256-Vdm/SIZtuDU+mTrjc7qmmCDsnqmwBc64Z+30z74DszI="; depends=[]; };
   StandardizeText = derive2 { name="StandardizeText"; version="1.0"; sha256="0s267k2b109pcdiyd26gm4ag5afikrnnb55d3cs6g2fvzp744hfp"; depends=[]; };
   Stat2Data = derive2 { name="Stat2Data"; version="2.0.0"; sha256="1fpp3b4k7x915a9wkpyj4dvvqp0wz7c3lpbh154vrxrdsr712z0k"; depends=[]; };
   StatCharrms = derive2 { name="StatCharrms"; version="0.90.94"; sha256="15sdyh3zglrdmzcpfmxd7ljf2fbbwy4xrzww03ppgb9s0650rqir"; depends=[cairoDevice car clinfun coxme gWidgets gWidgetsRGtk2 lattice multcomp nlme R2HTML RGtk2 RSCABS survival]; };
