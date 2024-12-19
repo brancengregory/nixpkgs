@@ -4,7 +4,7 @@ name: Trigger Workflow in Another Repo with Date
 on:
   push:
     branches:
-      - 2020-04-27
+      - 2020-03-12
 
 jobs:
   trigger-other-repo-workflow:
