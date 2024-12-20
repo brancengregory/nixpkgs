@@ -7594,7 +7594,7 @@ in with self; {
   gimms = derive2 { name="gimms"; version="1.1.1"; sha256="06vq0apsadyfgnz7906v2kjy0nx3yn0agq4yschxz1r1zmgrnyki"; depends=[curl Kendall ncdf4 raster RCurl zyp]; };
   giphyr = derive2 { name="giphyr"; version="0.1.3"; sha256="0q83my4l90873d1vbv42rqyajcnr0rjgp4jcxy77cha0l5rxjsyg"; depends=[dplyr httr miniUI purrr rstudioapi shiny tibble]; };
   gistr = derive2 { name="gistr"; version="0.4.2"; sha256="0bh325pf37v307isdlvdglripfki8xr6gh7n8mgi4cjparzhrh23"; depends=[assertthat dplyr httr jsonlite knitr magrittr rmarkdown]; };
-  git2r = derive2 { name="git2r"; version="0.24.0"; sha256="0vfc25z4j53pc49cnp3zjwzjb72kvc0aq96wgyg10xpgvhl3z0gg"; depends=[]; };
+  git2r = derive2 { name="git2r"; version="0.25.2"; sha256="15kpvz6ry2r8ii5hzinjwkggc5kgmkbcpsdwzahsf8gha52w80p0"; depends=[]; };
   gitgadget = derive2 { name="gitgadget"; version="0.2.1"; sha256="02jmp5lnk156sfqlv91jn42xds98ihya1x2f97cfwpzlas5qrxky"; depends=[curl dplyr jsonlite miniUI rstudioapi shiny]; };
   githubinstall = derive2 { name="githubinstall"; version="0.2.2"; sha256="0hqh86r2007hzdbm8rr0fwqhhsna7ji8sdgmdnrxkxraa5f2pfz3"; depends=[curl data_table devtools httr jsonlite mockery]; };
   gitlabr = derive2 { name="gitlabr"; version="0.9"; sha256="0i9sqqvn9xzknybsj9nmi6kclw8c35shy658li17455d28gv4653"; depends=[base64enc dplyr httr magrittr purrr stringr tibble yaml]; };
@@ -13878,4 +13878,3 @@ in with self; {
   ztype = derive2 { name="ztype"; version="0.1.0"; sha256="0brbq2rgkl4mhjbb70kkfv47lzs66k9ppfs2klavcbripirxn5fx"; depends=[assertthat dplyr ggplot2 lubridate magrittr rvest stringr]; };
   zyp = derive2 { name="zyp"; version="0.10-1.1"; sha256="03cxpkfbhrx1fy8l0dl9a13ghz93cqq6877wa8rig09ksdiivaw9"; depends=[Kendall]; };
 }
-
