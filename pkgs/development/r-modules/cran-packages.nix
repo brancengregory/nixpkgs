@@ -12146,7 +12146,7 @@ in with self; {
   setter = derive2 { name="setter"; version="0.0-1"; sha256="10fwrx8yysp99rrkbnn3rbz79vyzr2h3p7zxxlqapw1k2lllp0r5"; depends=[assertive_base]; };
   settings = derive2 { name="settings"; version="0.2.4"; sha256="092sv6nccm6p2d695l9w0zfi2xgymk12c8p8lhl9nb86mxrb3nry"; depends=[]; };
   severity = derive2 { name="severity"; version="2.0"; sha256="1mp19y2pn7nl9m8xfljc515kk5dirv0r2kypazpmd956lcivziqq"; depends=[]; };
-  sf = derive2 { name="sf"; version="0.7-3"; sha256="1b9lbid0hmmz8m5vhg8mi2mi2rclia6qwzd1jr8s81i2l0md828d"; depends=[classInt DBI magrittr Rcpp units]; };
+  sf = derive2 { name="sf"; version="0.7-4"; sha256="0vnyr7xyfcl928kbrb1k8l4fkd0cjrfq486g6gxpvy5j0cc2h4i1"; depends=[classInt DBI magrittr Rcpp units]; };
   sfa = derive2 { name="sfa"; version="1.0-1"; sha256="1acqxgydf8j5csdkx0yf169x3yaa31r0ccdrqarh6vj1hacm89ad"; depends=[]; };
   sfadv = derive2 { name="sfadv"; version="1.0.1"; sha256="1rfpm6km5pckwhqgpvidm6qsj5sjdaqqj5b0sgvpslivfa4c80cr"; depends=[gmm minpack_lm]; };
   sfc = derive2 { name="sfc"; version="0.1.0"; sha256="0cm4mfcfd9bhf2j5fppsihzrfipnldb6q3xradd88z9pwgrkfx2a"; depends=[dplyr sna tidyr triangle zoo]; };
