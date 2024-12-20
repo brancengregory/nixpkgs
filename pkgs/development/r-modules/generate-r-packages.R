@@ -4,7 +4,7 @@ library(parallel)
 cl <- makeCluster(10)
 
 biocVersion <- 3.9
-snapshotDate <- "2019-07-22"
+snapshotDate <- "2019-05-05"
 
 mirrorUrls <- list( bioc=paste0("http://bioconductor.org/packages/", biocVersion, "/bioc/src/contrib/")
                   , "bioc-annotation"=paste0("http://bioconductor.org/packages/", biocVersion, "/data/annotation/src/contrib/")
