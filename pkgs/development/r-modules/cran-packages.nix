@@ -16139,7 +16139,7 @@ in with self; {
   textreg = derive2 { name="textreg"; version="0.1.5"; sha256="0h44z5hyndnvzd9axix7gpmhbdx347dfgxw9r8w38kyw6dklbjy6"; depends=[NLP Rcpp tm]; };
   textreuse = derive2 { name="textreuse"; version="0.1.5"; sha256="1mva0f6pk0kpfw0vf90qw3a25f1i3imdhk2s7hxyzans0z2237jd"; depends=[assertthat BH digest dplyr NLP Rcpp RcppProgress stringr tibble tidyr]; };
   textshape = derive2 { name="textshape"; version="1.7.1"; sha256="02111kj3kka84mpx7s19bjna9cas8diw5fxz51v5ggz0ldswa5pa"; depends=[data_table slam stringi]; };
-  textshaping = derive2 { name="textshaping"; version="0.3.1"; sha256="16y3amb9cxwq126q1mxssx7kswzalqf9n2437mi5n7q1nqby6wlq"; depends=[cpp11 systemfonts]; };
+  textshaping = derive2 { name="textshaping"; version="0.3.4"; sha256="1kr6rh5zb5jp3acsfah6bzwkypzl5ixjzrs1xpdcslq14n82j4s0"; depends=[cpp11 systemfonts]; };
   textstem = derive2 { name="textstem"; version="0.1.4"; sha256="1pbhi5ia3w16vsix2x3if51zd2v9bcv0j4lj9hfikgq1yz9zxmw2"; depends=[dplyr hunspell koRpus koRpus_lang_en lexicon quanteda SnowballC stringi textclean textshape]; };
   textutils = derive2 { name="textutils"; version="0.2-0"; sha256="06w0d12l7g4z3m278x5ap0jxm2y1h6ssj4igfcxk7j8k5hy89l80"; depends=[]; };
   tfCox = derive2 { name="tfCox"; version="0.1.0"; sha256="06mbiz1jwp8mv5dbwyvdvy1wpp8s3xp9hhsm94vrbvjaxg680g28"; depends=[Rcpp survival]; };
