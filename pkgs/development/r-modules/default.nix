@@ -438,7 +438,7 @@ let
     RcppGSL = [ pkgs.gsl ];
     RcppZiggurat = [ pkgs.gsl ];
     reprex = [ pkgs.which ];
-    rgdal = with pkgs; [ proj gdal ];
+    rgdal = with pkgs; [ proj gdal pkg-config ];
     Rhisat2 = [ pkgs.which pkgs.hostname ];
     gdalcubes = [ pkgs.pkg-config ];
     rgeos = [ pkgs.geos ];
