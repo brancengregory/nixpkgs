@@ -14510,7 +14510,7 @@ in with self; {
   rstac = derive2 { name="rstac"; version="0.9.0"; sha256="1qz1pc054fc2adgl1ih0z6fs4wfnw8a9sycyrw4ag7990ibz606p"; depends=[crayon httr jsonlite magrittr]; };
   rstack = derive2 { name="rstack"; version="1.0.0"; sha256="19vbfmkd6ymadah1y1w5rn52f4hviddccyc6qj2cv5viqwbwws2z"; depends=[R6]; };
   rstackdeque = derive2 { name="rstackdeque"; version="1.1.1"; sha256="0i1qqbfj0yrqbkad8bqc1qlxmyxpn7zycbnq83cdmfbilcmi87ql"; depends=[]; };
-  rstan = derive2 { name="rstan"; version="2.21.2"; sha256="0jh58qfrksd2j9w2zy4bajryivgp36m3xdb9mjrjqbk1ib9h83p3"; depends=[BH ggplot2 gridExtra inline loo pkgbuild Rcpp RcppEigen RcppParallel StanHeaders V8 withr]; };
+  rstan = derive2 { name="rstan"; version="2.21.3"; sha256="1ccjdwh0xspna2c0m5p8as8y2b0lnhdyk9hfd3jh58j6n8fbzg3n"; depends=[BH ggplot2 gridExtra inline loo pkgbuild Rcpp RcppEigen RcppParallel StanHeaders]; };
   rstanarm = derive2 { name="rstanarm"; version="2.21.1"; sha256="04ggzak3f7jaxza3dxyrmxp5b48qcgyspy22ykbhr03g4hzp7jk8"; depends=[bayesplot BH ggplot2 lme4 loo Matrix nlme Rcpp RcppEigen RcppParallel rstan rstantools shinystan StanHeaders survival]; };
   rstanemax = derive2 { name="rstanemax"; version="0.1.3"; sha256="0myxcqwpk4zq5y1ri14rbsbb19kr8g7fd3mfdsn8vh2yi5xlcqk1"; depends=[BH dplyr ggplot2 magrittr purrr Rcpp RcppEigen rstan rstantools StanHeaders tidyr]; };
   rstantools = derive2 { name="rstantools"; version="2.1.1"; sha256="0b9x8rzj3dr4m7yjx476nn42z22xd1xnw85m9frfwxy5ivg1any9"; depends=[desc Rcpp RcppParallel]; };
