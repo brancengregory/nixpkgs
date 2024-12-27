@@ -1792,8 +1792,9 @@ let
       patches = [ ./patches/rhdf5filters.patch ];
     });
 
-    rhdf5= old.rhdf5.overrideAttrs (attrs: {
+    rhdf5 = old.rhdf5.overrideAttrs (attrs: {
       patches = [ ./patches/rhdf5.patch ];
+      env.NIX_CFLAGS_COMPILE = "-Wno-error=implicit-function-declaration";
     });
 
     rmarkdown = old.rmarkdown.overrideAttrs (_: {
