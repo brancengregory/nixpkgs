@@ -1822,6 +1822,35 @@ let
       hardeningDisable = ["format"];
     });
 
+    S4Vectors = old.S4Vectors.overrideAttrs (_: {
+      hardeningDisable = ["format"];
+    });
+
+    S4Arrays = old.S4Arrays.overrideAttrs (_: {
+      hardeningDisable = ["format"];
+    });
+
+    SparseArray = old.SparseArray.overrideAttrs (_: {
+      hardeningDisable = ["format"];
+    });
+
+    Rsamtools = old.Rsamtools.overrideAttrs (_: {
+      hardeningDisable = ["format"];
+    });
+
+    rtracklayer = old.rtracklayer.overrideAttrs (_: {
+      hardeningDisable = ["format"];
+    });
+
+    VariantAnnotation = old.VariantAnnotation.overrideAttrs (_: {
+      hardeningDisable = ["format"];
+    });
+
+    XVectors = old.XVectors.overrideAttrs (_: {
+      hardeningDisable = ["format"];
+    });
+
+
     tesseract = old.tesseract.overrideAttrs (_: {
       preConfigure = ''
         substituteInPlace configure \
