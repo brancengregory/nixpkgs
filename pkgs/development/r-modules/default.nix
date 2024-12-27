@@ -1794,6 +1794,7 @@ let
 
     rhdf5= old.rhdf5.overrideAttrs (attrs: {
       patches = [ ./patches/rhdf5.patch ];
+      hardeningDisable = ["format"];
       env.NIX_CFLAGS_COMPILE = "-Wno-error=implicit-function-declaration";
     });
 
