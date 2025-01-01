@@ -653,8 +653,8 @@
     },
     "BiocCheck": {
       "name": "BiocCheck",
-      "version": "1.42.0",
-      "sha256": "0c0gwa2wxwfh8ypj1vgy5lp89msn2s9cd155mwn0ginabvp9v36r",
+      "version": "1.42.1",
+      "sha256": "108kic1bsycq7pkbbv6881w7w7vfb2wy8n06vvzmbmvfh5jg5nv2",
       "depends": ["BiocBaseUtils", "BiocFileCache", "BiocManager", "biocViews", "callr", "cli", "codetools", "graph", "httr2", "knitr", "rvest", "stringdist"]
     },
     "BiocFHIR": {
@@ -5633,8 +5633,8 @@
     },
     "SeqArray": {
       "name": "SeqArray",
-      "version": "1.46.0",
-      "sha256": "1a1vjkkr2bhzyjbark7n5wa8grxscwaaz8zpn0qlx7ybj66bvbgj",
+      "version": "1.46.1",
+      "sha256": "1dxsdxka84dd3qhk0d3g4snlm740lm4829kivawaqz9sah0397hi",
       "depends": ["Biostrings", "GenomeInfoDb", "GenomicRanges", "IRanges", "S4Vectors", "gdsfmt"]
     },
     "SeqGSEA": {
@@ -7775,8 +7775,8 @@
     },
     "cytolib": {
       "name": "cytolib",
-      "version": "2.18.0",
-      "sha256": "1fbsdpm2v9mzb4n5r5lf9z6v3gzmxd0x5dqs863p0ll1b8a6w7qv",
+      "version": "2.18.1",
+      "sha256": "1j218y763207ql44qbn2228hdvnxh0hjb7c6y8x64i09vlvkda94",
       "depends": ["BH", "RProtoBufLib", "Rhdf5lib"]
     },
     "cytomapper": {
@@ -8753,8 +8753,8 @@
     },
     "gdsfmt": {
       "name": "gdsfmt",
-      "version": "1.42.0",
-      "sha256": "0snq2n202gfzx4mk7h2nkmz48nralq3hr20qgarxmk6kcw97zav4",
+      "version": "1.42.1",
+      "sha256": "058qh3vbxj9ix8fn995l66ynjzd40lxs9qr1vq7v2fxbmy4rzc0q",
       "depends": []
     },
     "geNetClassifier": {
@@ -9974,6 +9974,12 @@
       "version": "1.28.0",
       "sha256": "09pgfwsga5whqhdp898h35zfwway8x3y7dbv2aaf2ad3d4k5rqly",
       "depends": ["Biostrings", "GenomeInfoDb", "GenomicRanges", "IRanges", "Rcpp", "data_table", "ggplot2", "minpack_lm", "reshape2"]
+    },
+    "methodical": {
+      "name": "methodical",
+      "version": "1.2.0",
+      "sha256": "0w93w55r8k5fyhkq5rg2qqz5yamz0ziwm6idm68ykv1xh15f3fgw",
+      "depends": ["AnnotationHub", "BSgenome", "BSgenome_Hsapiens_UCSC_hg19", "BSgenome_Hsapiens_UCSC_hg38", "BiocCheck", "BiocManager", "BiocParallel", "BiocStyle", "Biostrings", "DelayedArray", "ExperimentHub", "GenomeInfoDb", "GenomicRanges", "HDF5Array", "IRanges", "MatrixGenerics", "R_utils", "RcppRoll", "S4Vectors", "SummarizedExperiment", "TumourMethData", "annotatr", "cowplot", "data_table", "devtools", "dplyr", "foreach", "ggplot2", "knitr", "rcmdcheck", "remotes", "rhdf5", "rtracklayer", "scales", "tibble", "tidyr", "usethis"]
     },
     "methrix": {
       "name": "methrix",
@@ -16043,13 +16049,6 @@
       "version": "1.22.0",
       "sha256": "1kcqhlv0lmr7wlkxjl9qqv2676pwna3i4w5xpm4inwgcb892zgjm",
       "depends": ["Biostrings", "IRanges", "ca", "gridBase", "gsubfn", "plotrix", "sqldf"],
-      "broken": true
-    },
-    "methodical": {
-      "name": "methodical",
-      "version": "1.0.0",
-      "sha256": "13m75hf5dq36l20idp9alcikhhqa2qy5jwfnpkv2yp1ra6c9pq7j",
-      "depends": ["BSgenome", "BiocParallel", "Biostrings", "DelayedArray", "ExperimentHub", "GenomeInfoDb", "GenomicRanges", "HDF5Array", "IRanges", "R_utils", "RcppRoll", "S4Vectors", "SummarizedExperiment", "cowplot", "data_table", "dplyr", "foreach", "ggplot2", "rhdf5", "rtracklayer", "scales", "tibble", "tidyr"],
       "broken": true
     },
     "methyAnalysis": {
