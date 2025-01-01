@@ -55,7 +55,7 @@ jobs:
       #        VariantAnnotation = old.VariantAnnotation.overrideAttrs (attrs: {\
       #          hardeningDisable = [ "format" ];\
       #      });\
-      $    ' pkgs/development/r-modules/default.nix
+      #    ' pkgs/development/r-modules/default.nix
         
       - name: Updating files
         run: |
