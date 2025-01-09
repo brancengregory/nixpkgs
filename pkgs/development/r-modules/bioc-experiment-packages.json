@@ -1319,9 +1319,9 @@
     },
     "TumourMethData": {
       "name": "TumourMethData",
-      "version": "1.3.0",
-      "sha256": "01xbsi6x4bafkp0m5xi4l2w62067xnfqnlkaz59ng1hf2ld2p690",
-      "depends": ["ExperimentHub", "GenomicRanges", "HDF5Array", "R_utils", "SummarizedExperiment", "rhdf5"]
+      "version": "1.4.0",
+      "sha256": "14y58qa4khi4jdymilxrb6x57br1gjclw2q3n9mivjrj6z3r3nmw",
+      "depends": ["BSgenome_Hsapiens_UCSC_hg19", "ExperimentHub", "ExperimentHubData", "GenomicRanges", "HDF5Array", "R_utils", "SummarizedExperiment", "TCGAutils", "dplyr", "knitr", "methrix", "openxlsx", "readr", "rhdf5", "rmarkdown", "stringr", "tibble", "usethis", "xlsx"]
     },
     "VariantToolsData": {
       "name": "VariantToolsData",
