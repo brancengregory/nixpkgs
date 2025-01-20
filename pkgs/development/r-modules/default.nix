@@ -376,6 +376,7 @@ let
     hellorust = [ pkgs.cargo ];
     hgwrr = [ pkgs.gsl ];
     h5vc = with pkgs; [ zlib bzip2 xz ];
+    hdf5r = [ pkgs.hdf5.dev ];
     yyjsonr = with pkgs; [ zlib ];
     RNifti = with pkgs; [ zlib ];
     RNiftyReg = with pkgs; [ zlib ];
@@ -445,7 +446,7 @@ let
     Rglpk = [ pkgs.glpk ];
     RGtk2 = [ pkgs.gtk2 ];
     rhdf5 = [ pkgs.zlib ];
-    Rhdf5lib = with pkgs; [ zlib ];
+    Rhdf5lib = with pkgs; [ zlib.dev hdf5.dev ];
     Rhpc = with pkgs; [ zlib bzip2 icu xz mpi pcre ];
     Rhtslib = with pkgs; [ zlib automake autoconf bzip2 xz curl ];
     rjags = [ pkgs.jags ];
@@ -1351,10 +1352,6 @@ let
       NIX_LDFLAGS = "-lX11";
     });
 
-    hdf5r = old.hdf5r.overrideAttrs (attrs: {
-      buildInputs = attrs.buildInputs ++ [ new.Rhdf5lib.hdf5 ];
-    });
-
     slfm = old.slfm.overrideAttrs (attrs: {
       PKG_LIBS = "-L${pkgs.blas}/lib -lblas -L${pkgs.lapack}/lib -llapack";
     });
@@ -1764,22 +1761,6 @@ let
       opencvGtk = pkgs.opencv.override (old : { enableGtk2 = true; });
     in old.opencv.overrideAttrs (attrs: {
       buildInputs = attrs.buildInputs ++ [ opencvGtk ];
-    });
-
-    Rhdf5lib = let
-      hdf5 = pkgs.hdf5_1_10.overrideAttrs (attrs: {configureFlags = attrs.configureFlags ++ [ "--enable-cxx" ];});
-    in old.Rhdf5lib.overrideAttrs (attrs: {
-      propagatedBuildInputs = attrs.propagatedBuildInputs ++ [ hdf5 pkgs.libaec ];
-      patches = [ ./patches/Rhdf5lib.patch ];
-      passthru.hdf5 = hdf5;
-    });
-
-    rhdf5filters = old.rhdf5filters.overrideAttrs (attrs: {
-      patches = [ ./patches/rhdf5filters.patch ];
-    });
-
-    rhdf5= old.rhdf5.overrideAttrs (attrs: {
-      patches = [ ./patches/rhdf5.patch ];
     });
 
     rmarkdown = old.rmarkdown.overrideAttrs (_: {
