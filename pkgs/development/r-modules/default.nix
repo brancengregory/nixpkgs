@@ -445,7 +445,7 @@ let
     rgeos = [ pkgs.geos ];
     Rglpk = [ pkgs.glpk ];
     RGtk2 = [ pkgs.gtk2 ];
-    rhdf5 = [ pkgs.zlib ];
+    rhdf5 = [ pkgs.zlib pkgs.hdf5 ];
     Rhdf5lib = with pkgs; [ zlib.dev hdf5.dev ];
     Rhpc = with pkgs; [ zlib bzip2 icu xz mpi pcre ];
     Rhtslib = with pkgs; [ zlib automake autoconf bzip2 xz curl ];
