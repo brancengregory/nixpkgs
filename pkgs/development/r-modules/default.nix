@@ -1224,6 +1224,10 @@ let
       '';
     });
 
+    rhdf5filters = old.rhdf5filters.overrideAttrs (attrs: {
+      patches = [ ./patches/rhdf5filters.patch ];
+    });
+
     ModelMetrics = old.ModelMetrics.overrideDerivation (attrs: {
         NIX_CFLAGS_COMPILE = attrs.NIX_CFLAGS_COMPILE + lib.optionalString stdenv.hostPlatform.isDarwin " -fopenmp";
     });
