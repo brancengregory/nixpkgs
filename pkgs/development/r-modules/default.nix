@@ -717,7 +717,7 @@ let
     podkat = with pkgs; [ zlib xz bzip2 ];
     qrqc = [ pkgs.zlib ];
     rJPSGCS = [ pkgs.zlib ];
-    rhdf5filters = with pkgs; [ zlib bzip2 ];
+    rhdf5filters = with pkgs; [ hdf5 zlib bzip2 ];
     symengine = with pkgs; [ mpfr symengine flint ];
     rtk = [ pkgs.zlib ];
     scPipe = with pkgs; [ bzip2 xz zlib ];
