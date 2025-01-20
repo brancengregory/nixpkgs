@@ -376,6 +376,7 @@ let
     hellorust = [ pkgs.cargo ];
     hgwrr = [ pkgs.gsl ];
     h5vc = with pkgs; [ zlib bzip2 xz ];
+    hdf5r = [ pkgs.hdf5.dev ];
     yyjsonr = with pkgs; [ zlib ];
     RNifti = with pkgs; [ zlib ];
     RNiftyReg = with pkgs; [ zlib ];
@@ -401,7 +402,7 @@ let
     LOMAR = [ pkgs.gmp ];
     littler = [ pkgs.libdeflate ];
     lpsymphony = with pkgs; [ pkg-config gfortran gettext ];
-    lwgeom = with pkgs; [ proj geos gdal ];
+    lwgeom = with pkgs; [ proj geos gdal ] ++ lib.optional stdenv.hostPlatform.isDarwin [ libtiff curl ];
     rsbml = [ pkgs.pkg-config ];
     rvg = [ pkgs.libpng ];
     MAGEE = [ pkgs.zlib pkgs.bzip2 ];
@@ -444,8 +445,8 @@ let
     rgeos = [ pkgs.geos ];
     Rglpk = [ pkgs.glpk ];
     RGtk2 = [ pkgs.gtk2 ];
-    rhdf5 = [ pkgs.zlib ];
-    Rhdf5lib = with pkgs; [ zlib ];
+    rhdf5 = [ pkgs.zlib pkgs.hdf5 ];
+    Rhdf5lib = with pkgs; [ zlib.dev hdf5.dev ];
     Rhpc = with pkgs; [ zlib bzip2 icu xz mpi pcre ];
     Rhtslib = with pkgs; [ zlib automake autoconf bzip2 xz curl ];
     rjags = [ pkgs.jags ];
@@ -716,7 +717,7 @@ let
     podkat = with pkgs; [ zlib xz bzip2 ];
     qrqc = [ pkgs.zlib ];
     rJPSGCS = [ pkgs.zlib ];
-    rhdf5filters = with pkgs; [ zlib bzip2 ];
+    rhdf5filters = with pkgs; [ hdf5 zlib bzip2 ];
     symengine = with pkgs; [ mpfr symengine flint ];
     rtk = [ pkgs.zlib ];
     scPipe = with pkgs; [ bzip2 xz zlib ];
@@ -1223,6 +1224,10 @@ let
       '';
     });
 
+    rhdf5filters = old.rhdf5filters.overrideAttrs (attrs: {
+      patches = [ ./patches/rhdf5filters.patch ];
+    });
+
     ModelMetrics = old.ModelMetrics.overrideDerivation (attrs: {
         NIX_CFLAGS_COMPILE = attrs.NIX_CFLAGS_COMPILE + lib.optionalString stdenv.hostPlatform.isDarwin " -fopenmp";
     });
@@ -1349,10 +1354,6 @@ let
     devEMF = old.devEMF.overrideAttrs (attrs: {
       NIX_CFLAGS_LINK = "-L${pkgs.xorg.libXft.out}/lib -lXft";
       NIX_LDFLAGS = "-lX11";
-    });
-
-    hdf5r = old.hdf5r.overrideAttrs (attrs: {
-      buildInputs = attrs.buildInputs ++ [ new.Rhdf5lib.hdf5 ];
     });
 
     slfm = old.slfm.overrideAttrs (attrs: {
@@ -1764,22 +1765,6 @@ let
       opencvGtk = pkgs.opencv.override (old : { enableGtk2 = true; });
     in old.opencv.overrideAttrs (attrs: {
       buildInputs = attrs.buildInputs ++ [ opencvGtk ];
-    });
-
-    Rhdf5lib = let
-      hdf5 = pkgs.hdf5_1_10.overrideAttrs (attrs: {configureFlags = attrs.configureFlags ++ [ "--enable-cxx" ];});
-    in old.Rhdf5lib.overrideAttrs (attrs: {
-      propagatedBuildInputs = attrs.propagatedBuildInputs ++ [ hdf5 pkgs.libaec ];
-      patches = [ ./patches/Rhdf5lib.patch ];
-      passthru.hdf5 = hdf5;
-    });
-
-    rhdf5filters = old.rhdf5filters.overrideAttrs (attrs: {
-      patches = [ ./patches/rhdf5filters.patch ];
-    });
-
-    rhdf5= old.rhdf5.overrideAttrs (attrs: {
-      patches = [ ./patches/rhdf5.patch ];
     });
 
     rmarkdown = old.rmarkdown.overrideAttrs (_: {
