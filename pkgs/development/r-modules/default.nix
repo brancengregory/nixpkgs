@@ -1814,6 +1814,7 @@ let
       ];
     });
 
+
     httr2 = old.httr2.overrideAttrs (attrs: {
       preConfigure = "patchShebangs configure";
     });
