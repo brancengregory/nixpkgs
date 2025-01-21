@@ -1774,6 +1774,7 @@ let
       hardeningDisable = ["format"];
     });
 
+
     opencv = let
       opencvGtk = pkgs.opencv.override (old : { enableGtk2 = true; });
     in old.opencv.overrideAttrs (attrs: {
