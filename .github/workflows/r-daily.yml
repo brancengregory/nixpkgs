@@ -83,9 +83,6 @@ jobs:
           log-directives: nix_installer=trace
           backtrace: full
 
-      - name: Nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@main
-
       - name: Update R packages
         run: |
           cd pkgs/development/r-modules/
