@@ -796,7 +796,7 @@ let
     shrinkTVP = [ pkgs.gsl ];
     sbrl = with pkgs; [ gsl gmp.dev ];
     surveyvoi = with pkgs; [ gmp.dev mpfr.dev ];
-    unigd = with pkgs; [ cairo.dev libpng.dev ];
+    unigd = with pkgs; [ cairo.dev libpng.dev ] ++ lib.optionals stdenv.hostPlatform.isDarwin [ expat xorg.libXdmcp ];
     HilbertVisGUI = [ pkgs.gtkmm2.dev ];
     textshaping = with pkgs; [ harfbuzz.dev freetype.dev fribidi libpng ];
     DropletUtils = [ pkgs.zlib.dev ];
@@ -1813,7 +1813,6 @@ let
         })
       ];
     });
-
 
     httr2 = old.httr2.overrideAttrs (attrs: {
       preConfigure = "patchShebangs configure";
