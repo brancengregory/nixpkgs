@@ -1,0 +1,35 @@
+# .github/workflows/push-trigger.yml
+name: Trigger Workflow in Another Repo with Date
+
+on:
+  push:
+    branches:
+      - 2025-01-24
+
+jobs:
+  trigger-other-repo-workflow:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Determine Nix file to use
+      id: determine-file
+      run: |
+          year=$(echo "${{ github.ref_name }}" | cut -c1-4)
+          if [ "$year" -le 2020 ]; then
+              echo "darwin=macos-13" >> $GITHUB_ENV
+          else
+              echo "darwin=macos-14" >> $GITHUB_ENV
+          fi
+
+    - name: Trigger workflow in another repository
+      run: |
+        curl -X POST \
+        -H "Authorization: token ${{ secrets.MY_PAT }}" \
+        -H "Accept: application/vnd.github.v3+json" \
+        https://api.github.com/repos/rstats-on-nix/build_tree/dispatches \
+        -d '{
+          "event_type": "trigger-workflow",
+          "client_payload": {
+            "ref_name": "${{ github.ref_name }}",
+            "platforms": ["ubuntu-latest", "${{ env.darwin }}"]
+          }
+        }'
