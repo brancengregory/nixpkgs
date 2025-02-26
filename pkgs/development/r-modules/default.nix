@@ -1125,6 +1125,15 @@ let
       ];
     });
 
+   prqlr = old.prqlr.overrideAttrs (attrs: {
+      nativeBuildInputs = with pkgs; [ cargo rustc ] ++ attrs.nativeBuildInputs;
+      postPatch = "patchShebangs configure";
+    });
+
+    nanoparquet = old.nanoparquet.overrideAttrs (attrs: {
+      preConfigure = "patchShebangs configure";
+    });
+
     rzmq = old.rzmq.overrideAttrs (attrs: {
       preConfigure = "patchShebangs configure";
     });
