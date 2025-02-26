@@ -986,7 +986,6 @@ let
     # Impure network access during build
     "waddR"
     "tiledb"
-    "x13binary"
     "switchr"
 
     # ExperimentHub dependents, require net access during build
@@ -1124,6 +1123,15 @@ let
       configureFlags = [
         "--with-proj-lib=${pkgs.lib.getLib pkgs.proj}/lib"
       ];
+    });
+
+   prqlr = old.prqlr.overrideAttrs (attrs: {
+      nativeBuildInputs = with pkgs; [ cargo rustc ] ++ attrs.nativeBuildInputs;
+      postPatch = "patchShebangs configure";
+    });
+
+    nanoparquet = old.nanoparquet.overrideAttrs (attrs: {
+      preConfigure = "patchShebangs configure";
     });
 
     rzmq = old.rzmq.overrideAttrs (attrs: {
