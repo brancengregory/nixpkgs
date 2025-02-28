@@ -76,6 +76,11 @@ jobs:
         run: |
           wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/bioc_devel.patch
 
+      - name: Update R to 4.4.3 until merged in master
+        run: |
+          sed -i 's|sha256 = "sha256-FXjNYD6NhmtYdD5J2L+ZxWnoEHm2pgzzPN973/64F+w=";|sha256 = "sha256-DZPSJEQt6iU8KwhvCI220NPP2bWSzVSW6MshQ+kPyeg=";|' pkgs/applications/science/math/R/default.nix
+          sed -i 's|version = "4.4.2";|version = "4.4.3";|' pkgs/applications/science/math/R/default.nix
+
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
         with:
