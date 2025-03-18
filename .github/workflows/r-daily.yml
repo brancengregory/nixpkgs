@@ -154,7 +154,7 @@ jobs:
 
       - name: Patch for R-devel
         run: |
-          sed -i 's|sha256 = ".*";|sha256 = ${{ steps.r-devel-sha.outputs.r-devel-sha }};|' pkgs/applications/science/math/R/default.nix
+          sed -i 's|sha256 = ".*";|sha256 = "${{ steps.r-devel-sha.outputs.r-devel-sha }}";|' pkgs/applications/science/math/R/default.nix
           sed -i 's|url = "https://cran.r-project.org/src/base/R-.*";|url = "https://cran.r-project.org/src/base-prerelease/R-devel.tar.gz";|' pkgs/applications/science/math/R/default.nix
 
       - name: Pushing updates r-devel-bioc-devel
