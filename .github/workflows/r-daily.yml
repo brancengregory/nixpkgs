@@ -45,7 +45,25 @@ jobs:
                           '\'''\'';\
                           env.NIX_CFLAGS_COMPILE = "-Wno-error=implicit-function-declaration";\
                           });' "$FILE"
-    
+
+
+      - name: Overwrite rhdf5filters.patch
+        run: |
+          printf '%s\n' \
+           'diff --git a/src/Makevars.in b/src/Makevars.in' \
+           '--- a/src/Makevars.in' \
+           '+++ b/src/Makevars.in' \
+           '@@ -15,7 +15,7 @@ RANLIB := @RANLIB@' \
+           ' MAKE := @MAKE@' \
+           ' AR := @AR@' \
+           '-PKG_CPPFLAGS := @CPPFLAGS@ -I"@RHDF5_INCLUDE@"' \
+           '+PKG_CPPFLAGS := @CPPFLAGS@' \
+           ' PKG_LDFLAGS := @LDFLAGS@' \
+           ' export' \
+           '' \
+           ' all: copying $(SHLIB)' \
+          > pkgs/development/r-modules/patches/rhdf5filters.patch
+      
       #- name: Fix for S4Vectors (only for darwin, https://github.com/Bioconductor/S4Vectors/commit/31853e4e97ff6bc3a8a2e0fdcc6dde72fb61c045) and sf, terra, vap our
       #  run: |
       #    sed -i '/flowClust = old/a \
