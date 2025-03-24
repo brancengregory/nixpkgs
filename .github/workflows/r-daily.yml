@@ -31,6 +31,21 @@ jobs:
           git fetch upstream
           git reset --hard upstream/master
 
+      - name: Insert RJSONIO block into default.nix
+        run: |
+          FILE="pkgs/development/r-modules/default.nix"
+          sed -i '/^rmarkdown = old\.rmarkdown.overrideAttrs/i\  RJSONIO = old.RJSONIO.overrideAttrs (attrs: {\
+                  postPatch = '\'''\''\
+                  substituteInPlace src/RJSON.c \\
+                  --replace-fail '\''#include <Rdefines.h>'\'' \\
+                  '\''#include <Rdefines.h>\
+                      #ifndef VECTOR_PTR_RO\
+                      #define VECTOR_PTR_RO(x) DATAPTR_RO(x)\
+                      #endif'\''\
+                   '\'''\'';\
+                   env.NIX_CFLAGS_COMPILE = "-Wno-error=implicit-function-declaration";\
+                   });' "$FILE"
+    
       #- name: Fix for S4Vectors (only for darwin, https://github.com/Bioconductor/S4Vectors/commit/31853e4e97ff6bc3a8a2e0fdcc6dde72fb61c045) and sf, terra, vap our
       #  run: |
       #    sed -i '/flowClust = old/a \
