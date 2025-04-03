@@ -1073,8 +1073,8 @@
     },
     "RnBeads_hg38": {
       "name": "RnBeads.hg38",
-      "version": "1.38.0",
-      "sha256": "1wpnkh1rsirnvbbl7y89lmr9q5r6hr331n20qjav92j3g41r3bqp",
+      "version": "1.38.1",
+      "sha256": "0dxj7ncy6ixannldy5362ay3m49i2md2qs0psk1zqxmgv202v5j6",
       "depends": ["GenomicRanges"]
     },
     "RnBeads_mm10": {
@@ -1139,8 +1139,8 @@
     },
     "STexampleData": {
       "name": "STexampleData",
-      "version": "1.14.1",
-      "sha256": "14xdinp0ix55lgs0adcxwnjascrpx4s39kghrhbcpjl0ainrdhk3",
+      "version": "1.14.3",
+      "sha256": "02lib5mvbxmrksd03bfrc58ywlpb7r1aka8h35l4ld0p57svipr8",
       "depends": ["ExperimentHub", "SingleCellExperiment", "SpatialExperiment"]
     },
     "SVM2CRMdata": {
