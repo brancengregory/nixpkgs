@@ -1367,8 +1367,8 @@
     },
     "TENET_AnnotationHub": {
       "name": "TENET.AnnotationHub",
-      "version": "0.99.4",
-      "sha256": "0kfdwxbxi4y773nknpd712wz3zcqbigkycnsrrd40jp04my91mpm",
+      "version": "1.0.0",
+      "sha256": "0xxyh0w5vylncpckkna05ppmfyf3wzcgx1gr3w2vv41wny0bbgff",
       "depends": ["AnnotationHub", "GenomicRanges"]
     },
     "TxDb_Athaliana_BioMart_plantsmart22": {
