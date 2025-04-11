@@ -2601,6 +2601,18 @@ let
       env.NIX_CFLAGS_COMPILE = "-Wno-error=implicit-function-declaration";
     });
 
+    RJSONIO = old.RJSONIO.overrideAttrs (attrs: {
+        postPatch = ''
+          substituteInPlace src/RJSON.c \
+            --replace-fail '#include <Rdefines.h>' \
+        '#include <Rdefines.h>
+        #ifndef VECTOR_PTR_RO
+        #define VECTOR_PTR_RO(x) DATAPTR_RO(x)
+        #endif'
+        '';
+        env.NIX_CFLAGS_COMPILE = "-Wno-error=implicit-function-declaration";
+      });
+
     rmarkdown = old.rmarkdown.overrideAttrs (_: {
       preConfigure = ''
         substituteInPlace R/pandoc.R \
