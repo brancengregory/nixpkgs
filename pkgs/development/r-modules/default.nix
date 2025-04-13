@@ -701,6 +701,7 @@ let
       jdk
       libzip
       libdeflate
+      zstd
     ];
     Rlibeemd = [ pkgs.gsl ];
     rmatio = [
