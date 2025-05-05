@@ -700,6 +700,7 @@ let
       jdk
       libzip
       libdeflate
+      zstd
     ];
     Rlibeemd = [ pkgs.gsl ];
     rmatio = [
@@ -723,7 +724,7 @@ let
     RODBC = [ pkgs.libiodbc ];
     rpanel = [ pkgs.tclPackages.bwidget ];
     Rpoppler = [ pkgs.poppler ];
-    RPostgreSQL = with pkgs; [ libpq.pg_config ];
+    RPostgreSQL = with pkgs; [ libpq ];
     RProtoBuf = [ pkgs.protobuf ];
     RSclient = [ pkgs.openssl.dev ];
     Rserve = [ pkgs.openssl ];
@@ -2599,6 +2600,18 @@ let
       patches = [ ./patches/rhdf5.patch ];
       env.NIX_CFLAGS_COMPILE = "-Wno-error=implicit-function-declaration";
     });
+
+    RJSONIO = old.RJSONIO.overrideAttrs (attrs: {
+          postPatch = ''
+            substituteInPlace src/RJSON.c \
+              --replace-fail '#include <Rdefines.h>' \
+          '#include <Rdefines.h>
+          #ifndef VECTOR_PTR_RO
+          #define VECTOR_PTR_RO(x) DATAPTR_RO(x)
+          #endif'
+          '';
+          env.NIX_CFLAGS_COMPILE = "-Wno-error=implicit-function-declaration";
+     });
 
     rmarkdown = old.rmarkdown.overrideAttrs (_: {
       preConfigure = ''
