@@ -805,6 +805,7 @@ let
       gdal
       proj
       geos
+      netcdf
     ];
     tok = [ pkgs.cargo ];
     rshift = with pkgs; [
