@@ -104,13 +104,14 @@ jobs:
           )
           echo "Latest commit is $LATEST_COMMIT"
 
-          # 2. Prefetch that exact revision to obtain its sha256:
-          SHA=$(
+          # 2. Prefetch that exact revision and parse JSON to extract just the base32 sha256:
+          RAW_JSON=$(
             nix-prefetch-git https://github.com/CodeDownIO/General.git "$LATEST_COMMIT"
           )
-          echo "Computed sha256 is $SHA"
+          SHA=$(echo "$RAW_JSON" | jq -r .sha256)
+          echo "Computed sha256 (base32) is $SHA"
 
-          # 3. In-place replace “rev = …” and “sha256 = …” in registry.nix:
+          # 3. In-place replace rev = "…"  and sha256 = "…" in registry.nix:
           sed -i \
             "s|rev = \".*\";|rev = \"$LATEST_COMMIT\";|" \
             pkgs/development/julia-modules/registry.nix
