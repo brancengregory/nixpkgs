@@ -1,0 +1,295 @@
+name: daily-cumulative-update
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * *' # Every day at noon
+
+jobs:
+  update-cumulative-registry:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: "CodeDownIO/registry2nix"
+        ref: "f9c85c1b6fa09a02a23a3b9d31704dae04511b2f"
+
+    - uses: cachix/install-nix-action@v31
+      with:
+        nix_path: nixpkgs=channel:release-24.11
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Install dependencies
+      run: |
+        nix profile install nixpkgs#nix-prefetch-git
+        nix profile install nixpkgs#python3
+
+    - uses: haskell-actions/setup@v2
+      with:
+        ghc-version: "9.2.8"
+        stack-version: "latest"
+        enable-stack: true
+
+    - name: Cache ~/.stack
+      uses: actions/cache@v3
+      with:
+        path: ~/.stack
+        key: ${{ runner.os }}-9.2.8-stack-2
+
+    - name: Build registry2nix
+      run: |
+        stack build --system-ghc
+        stack install --system-ghc
+
+    - name: Check out cumulative registry (or create if first run)
+      run: |
+        set +e
+        git clone https://github.com/CodeDownIO/GeneralCumulative.git CumulativeRegistry
+        if [ $? -ne 0 ]; then
+          echo "Cumulative registry doesn't exist yet, will create it"
+          mkdir -p CumulativeRegistry
+          cd CumulativeRegistry
+          git init
+          git remote add origin https://github.com/CodeDownIO/GeneralCumulative.git
+        fi
+        set -e
+
+    - name: Check out latest Julia General registry
+      uses: actions/checkout@v3
+      with:
+        repository: "JuliaRegistries/General"
+        path: LatestGeneral
+
+    - name: Update cumulative registry with new packages/versions
+      run: |
+        cd CumulativeRegistry
+
+        # Create the registry update script
+        cat > update_registry.py << 'EOF'
+        #!/usr/bin/env python3
+        import os
+        import sys
+        import shutil
+        import json
+        from pathlib import Path
+
+        def load_toml_simple(file_path):
+            """Simple TOML parser for Registry.toml format"""
+            result = {}
+            current_section = None
+
+            with open(file_path, 'r') as f:
+                for line in f:
+                    line = line.strip()
+                    if not line or line.startswith('#'):
+                        continue
+
+                    if line.startswith('[') and line.endswith(']'):
+                        current_section = line[1:-1]
+                        if current_section not in result:
+                            result[current_section] = {}
+                    elif '=' in line and current_section:
+                        key, value = line.split('=', 1)
+                        key = key.strip()
+                        value = value.strip().strip('"')
+
+                        # Handle package entries specially
+                        if current_section == 'packages':
+                            # Parse: uuid = { name = "PackageName", path = "P/PackageName" }
+                            if '{' in value:
+                                pkg_info = {}
+                                # Extract name and path
+                                parts = value.strip('{}').split(',')
+                                for part in parts:
+                                    if '=' in part:
+                                        k, v = part.split('=', 1)
+                                        k = k.strip().strip('"')
+                                        v = v.strip().strip('"')
+                                        pkg_info[k] = v
+                                result[current_section][key] = pkg_info
+                        else:
+                            result[current_section][key] = value
+                    elif '=' in line:
+                        key, value = line.split('=', 1)
+                        key = key.strip()
+                        value = value.strip().strip('"')
+                        result[key] = value
+
+            return result
+
+        def write_toml_simple(data, file_path):
+            """Simple TOML writer"""
+            with open(file_path, 'w') as f:
+                # Write top-level keys first
+                for key, value in data.items():
+                    if not isinstance(value, dict):
+                        f.write(f'{key} = "{value}"\n')
+
+                f.write('\n')
+
+                # Write sections
+                for section_name, section_data in data.items():
+                    if isinstance(section_data, dict):
+                        f.write(f'[{section_name}]\n')
+                        for key, value in section_data.items():
+                            if isinstance(value, dict):
+                                # Package entry
+                                parts = []
+                                for k, v in value.items():
+                                    parts.append(f'{k} = "{v}"')
+                                f.write(f'{key} = {{ {", ".join(parts)} }}\n')
+                            else:
+                                f.write(f'{key} = "{value}"\n')
+                        f.write('\n')
+
+        def copy_new_versions(src_base, dst_base):
+            """Copy new package versions from src to dst"""
+            changes_made = False
+
+            for item in src_base.iterdir():
+                if item.is_dir() and len(item.name) == 1:  # Letter directories
+                    dst_letter_dir = dst_base / item.name
+                    dst_letter_dir.mkdir(exist_ok=True)
+
+                    # Process each package in this letter directory
+                    for pkg_dir in item.iterdir():
+                        if pkg_dir.is_dir():
+                            dst_pkg_dir = dst_letter_dir / pkg_dir.name
+
+                            # Copy the entire package directory if it's new
+                            if not dst_pkg_dir.exists():
+                                print(f"New package: {item.name}/{pkg_dir.name}")
+                                shutil.copytree(pkg_dir, dst_pkg_dir)
+                                changes_made = True
+                            else:
+                                # Check for new versions within existing packages
+                                for version_item in pkg_dir.iterdir():
+                                    dst_version_item = dst_pkg_dir / version_item.name
+                                    if not dst_version_item.exists():
+                                        if version_item.is_dir():
+                                            print(f"New version: {item.name}/{pkg_dir.name}/{version_item.name}")
+                                            shutil.copytree(version_item, dst_version_item)
+                                        else:
+                                            print(f"New file: {item.name}/{pkg_dir.name}/{version_item.name}")
+                                            shutil.copy2(version_item, dst_version_item)
+                                        changes_made = True
+
+            return changes_made
+
+        def main():
+            latest_base = Path("../LatestGeneral")
+            cumulative_base = Path(".")
+
+            print("Updating cumulative registry...")
+
+            # Copy new packages and versions
+            changes_made = copy_new_versions(latest_base, cumulative_base)
+
+            # Update Registry.toml
+            latest_registry_file = latest_base / "Registry.toml"
+            cumulative_registry_file = cumulative_base / "Registry.toml"
+
+            if latest_registry_file.exists():
+                latest_registry = load_toml_simple(latest_registry_file)
+
+                if cumulative_registry_file.exists():
+                    cumulative_registry = load_toml_simple(cumulative_registry_file)
+                else:
+                    cumulative_registry = {"packages": {}}
+
+                # Merge package listings
+                if "packages" not in cumulative_registry:
+                    cumulative_registry["packages"] = {}
+
+                new_packages = 0
+                for uuid, pkg_info in latest_registry.get("packages", {}).items():
+                    if uuid not in cumulative_registry["packages"]:
+                        print(f"Registering new package: {pkg_info.get('name', 'Unknown')}")
+                        cumulative_registry["packages"][uuid] = pkg_info
+                        new_packages += 1
+                        changes_made = True
+
+                # Update metadata
+                cumulative_registry["name"] = latest_registry.get("name", "General")
+                cumulative_registry["uuid"] = latest_registry.get("uuid", "")
+                cumulative_registry["repo"] = latest_registry.get("repo", "")
+                cumulative_registry["description"] = (
+                    latest_registry.get("description", "") +
+                    "\n\nCumulative registry maintained by CodeDownIO with all historical versions."
+                )
+
+                # Write updated registry
+                write_toml_simple(cumulative_registry, cumulative_registry_file)
+
+                print(f"Added {new_packages} new packages")
+
+            return changes_made
+
+        if __name__ == "__main__":
+            changes_made = main()
+            # Write status for the shell script
+            with open("/tmp/changes_made", "w") as f:
+                f.write("true" if changes_made else "false")
+        EOF
+
+        python3 update_registry.py
+        CHANGES_MADE=$(cat /tmp/changes_made)
+        echo "CHANGES_MADE=$CHANGES_MADE" >> $GITHUB_ENV
+
+    - name: Generate Nix expressions (if changes were made)
+      if: env.CHANGES_MADE == 'true'
+      run: |
+        cd CumulativeRegistry
+
+        # Backup previous failures if they exist
+        if [ -f failures.yml ]; then
+          cp failures.yml failures_backup_$(date +%Y%m%d).yml
+        fi
+
+        echo "Running registry2nix on updated cumulative registry..."
+        set +e
+        registry2nix-exe \
+          --print-failures \
+          --repo . \
+          --write-new-failures failures.yml \
+          --num-workers 8
+        EXIT_CODE=$?
+        set -e
+
+        echo "registry2nix completed with exit code: $EXIT_CODE"
+
+    - name: Commit and push changes (if any were made)
+      if: env.CHANGES_MADE == 'true'
+      run: |
+        cd CumulativeRegistry
+
+        git config --global user.email "registry2nix@codedown.io"
+        git config --global user.name "registry2nix-cumulative"
+
+        # Get the latest Julia registry commit for reference
+        cd ../LatestGeneral
+        JULIA_COMMIT=$(git rev-parse HEAD)
+        JULIA_COMMIT_SHORT=$(git rev-parse --short HEAD)
+        cd ../CumulativeRegistry
+
+        git add .
+
+        if ! git diff --staged --quiet; then
+          git commit -m "Daily update $(date +%Y-%m-%d): sync with JuliaRegistries/General@$JULIA_COMMIT_SHORT"
+          echo "Changes committed successfully"
+        else
+          echo "No changes to commit"
+        fi
+
+    - name: Push changes
+      if: env.CHANGES_MADE == 'true'
+      run: |
+        cd CumulativeRegistry
+        git push origin main || git push --set-upstream origin main
+
+    - name: Create repository if it doesn't exist
+      if: failure()
+      run: |
+        echo "If this failed because the repository doesn't exist, create it manually:"
+        echo "1. Go to https://github.com/CodeDownIO"
+        echo "2. Create a new repository called 'GeneralCumulative'"
+        echo "3. Re-run this workflow"

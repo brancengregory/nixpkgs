@@ -8,6 +8,8 @@
   packageNames,
   packageOverrides,
   packageImplications,
+  # Add this parameter to control weak dep resolution
+  resolveWeakDeps ? false,
 }:
 
 let
@@ -36,6 +38,10 @@ let
         lib.mapAttrsToList (name: path: ''"${name}" => "${path}"'') packageOverrides
       )
     })
+
+    # Pass the weak dependency resolution flag
+    resolve_weak_dependencies = ${if resolveWeakDeps then "true" else "false"}
+
     ${builtins.readFile ./resolve_packages.jl}
 
     open(ENV["out"], "w") do io
@@ -68,6 +74,7 @@ runCommand "julia-package-closure.yml"
     echo "Resolving Julia packages with the following inputs"
     echo "Julia: ${julia}"
     echo "Registry: ${augmentedRegistry}"
+    echo "Resolve weak dependencies: ${lib.boolToString resolveWeakDeps}"
 
     # Prevent a warning where Julia tries to download package server info
     export JULIA_PKG_SERVER=""
