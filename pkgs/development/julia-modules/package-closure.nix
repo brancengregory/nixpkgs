@@ -77,63 +77,134 @@ resolveCode1_8 = ''
 
     foreach(pkg -> ctx.env.project.deps[pkg.name] = pkg.uuid, pkgs)
 
-    # Save the original pkgs for later
+    # Save the original pkgs
     orig_pkgs = pkgs
+    orig_pkg_names = Set([pkg.name for pkg in orig_pkgs])
 
     if VERSION >= VersionNumber("1.9")
-        # First, do a preliminary resolution just to build the dependency graph
-        preliminary_pkgs, preliminary_deps_map = _resolve(ctx.io, ctx.env, ctx.registries, pkgs, PRESERVE_NONE, ctx.julia_version)
+        # Blacklist of packages to exclude (development tools that cause conflicts)
+        blacklisted = Set([
+            "Atom", "FlameGraphs", "BenchmarkTools", "ProfileView", "Juno",
+            "TracyProfiler_jll", "Cthulhu", "Debugger", "Revise", "ProfileCanvas",
+            "ProfileSVG", "PProf", "JuliaInterpreter"
+        ])
         
-        # Collect ALL package names (original + all weak deps) without version constraints
-        all_package_names = Set{String}()
+        # Pass 1: Initial resolution
+        pkgs, deps_map = _resolve(ctx.io, ctx.env, ctx.registries, pkgs, PRESERVE_NONE, ctx.julia_version)
         
-        # Add original package names
-        for pkg in orig_pkgs
-            push!(all_package_names, pkg.name)
-        end
+        # Collect weak dependencies from pass 1
+        resolved_uuids = Set([pkg.uuid for pkg in pkgs])
+        weak_deps_names = Set{String}()
         
-        # Add all packages from the preliminary resolution
-        for pkg in preliminary_pkgs
-            push!(all_package_names, pkg.name)
-        end
-        
-        # Add all weak dependencies found in deps_map
-        for (pkg_uuid, deps) in pairs(preliminary_deps_map)
+        for (pkg_uuid, deps) in pairs(deps_map)
             for (dep_name, dep_uuid) in pairs(deps)
-                push!(all_package_names, dep_name)
+                if !(dep_uuid in resolved_uuids) && !(dep_name in blacklisted)
+                    push!(weak_deps_names, dep_name)
+                end
             end
         end
         
-        println("Collected all package names (including weak deps): $all_package_names")
-        
-        # Create new PackageSpecs for ALL packages without version constraints
-        all_pkgs = [PackageSpec(name) for name in all_package_names]
-        
-        # Start fresh - clear the environment
-        empty!(ctx.env.project.deps)
-        
-        # Resolve everything together
-        project_deps_resolve!(ctx.env, all_pkgs)
-        registry_resolve!(ctx.registries, all_pkgs)
-        stdlib_resolve!(all_pkgs)
-        ensure_resolved(ctx, ctx.env.manifest, all_pkgs, registry=true)
-        
-        for (i, pkg) in pairs(all_pkgs)
-            entry = Pkg.Types.manifest_info(ctx.env.manifest, pkg.uuid)
-            # Mark original packages as deps, everything else as not
-            is_dep = any(p -> p.name == pkg.name, orig_pkgs)
-            # Handle different Julia versions
-            if VERSION >= v"1.11"
-                all_pkgs[i] = update_package_add(ctx, pkg, entry, false, false, is_dep)
+        if !isempty(weak_deps_names)
+            println("Found weak dependencies from pass 1: $weak_deps_names")
+            
+            # Pass 2: Add weak dependencies and resolve again
+            all_package_names = Set{String}(pkg.name for pkg in orig_pkgs)
+            union!(all_package_names, weak_deps_names)
+            
+            # Filter out blacklisted packages
+            all_package_names = setdiff(all_package_names, blacklisted)
+            
+            # Create fresh specs for all packages
+            all_pkgs = [PackageSpec(name) for name in all_package_names]
+            
+            # Reset and resolve everything together
+            empty!(ctx.env.project.deps)
+            
+            # Apply overrides
+            for pkg in all_pkgs
+                if pkg.name in keys(overrides)
+                    pkg.path = overrides[pkg.name]
+                end
+            end
+            
+            project_deps_resolve!(ctx.env, all_pkgs)
+            registry_resolve!(ctx.registries, all_pkgs)
+            stdlib_resolve!(all_pkgs)
+            ensure_resolved(ctx, ctx.env.manifest, all_pkgs, registry=true)
+            
+            for (i, pkg) in pairs(all_pkgs)
+                entry = Pkg.Types.manifest_info(ctx.env.manifest, pkg.uuid)
+                is_dep = pkg.name in orig_pkg_names
+                # Handle different Julia versions
+                if VERSION >= v"1.11"
+                    all_pkgs[i] = update_package_add(ctx, pkg, entry, false, false, is_dep)
+                else
+                    all_pkgs[i] = update_package_add(ctx, pkg, entry, is_dep)
+                end
+            end
+            
+            foreach(pkg -> ctx.env.project.deps[pkg.name] = pkg.uuid, all_pkgs)
+            
+            # Pass 2 resolution
+            pkgs2, deps_map2 = _resolve(ctx.io, ctx.env, ctx.registries, all_pkgs, PRESERVE_NONE, ctx.julia_version)
+            
+            # Collect any new weak dependencies from pass 2
+            resolved_uuids2 = Set([pkg.uuid for pkg in pkgs2])
+            new_weak_deps = Set{String}()
+            
+            for (pkg_uuid, deps) in pairs(deps_map2)
+                for (dep_name, dep_uuid) in pairs(deps)
+                    if !(dep_uuid in resolved_uuids2) && !(dep_name in blacklisted) && !(dep_name in all_package_names)
+                        push!(new_weak_deps, dep_name)
+                    end
+                end
+            end
+            
+            if !isempty(new_weak_deps)
+                println("Found additional weak dependencies from pass 2: $new_weak_deps")
+                
+                # Final pass: Add the new weak dependencies too
+                union!(all_package_names, new_weak_deps)
+                all_package_names = setdiff(all_package_names, blacklisted)
+                
+                # Create fresh specs for all packages including new weak deps
+                final_pkgs = [PackageSpec(name) for name in all_package_names]
+                
+                # Reset and resolve everything together
+                empty!(ctx.env.project.deps)
+                
+                # Apply overrides
+                for pkg in final_pkgs
+                    if pkg.name in keys(overrides)
+                        pkg.path = overrides[pkg.name]
+                    end
+                end
+                
+                project_deps_resolve!(ctx.env, final_pkgs)
+                registry_resolve!(ctx.registries, final_pkgs)
+                stdlib_resolve!(final_pkgs)
+                ensure_resolved(ctx, ctx.env.manifest, final_pkgs, registry=true)
+                
+                for (i, pkg) in pairs(final_pkgs)
+                    entry = Pkg.Types.manifest_info(ctx.env.manifest, pkg.uuid)
+                    is_dep = pkg.name in orig_pkg_names
+                    # Handle different Julia versions
+                    if VERSION >= v"1.11"
+                        final_pkgs[i] = update_package_add(ctx, pkg, entry, false, false, is_dep)
+                    else
+                        final_pkgs[i] = update_package_add(ctx, pkg, entry, is_dep)
+                    end
+                end
+                
+                foreach(pkg -> ctx.env.project.deps[pkg.name] = pkg.uuid, final_pkgs)
+                
+                # Final resolution
+                global pkgs, deps_map = _resolve(ctx.io, ctx.env, ctx.registries, final_pkgs, PRESERVE_NONE, ctx.julia_version)
             else
-                all_pkgs[i] = update_package_add(ctx, pkg, entry, is_dep)
+                # No new weak deps in pass 2, use pass 2 results
+                global pkgs, deps_map = pkgs2, deps_map2
             end
         end
-        
-        foreach(pkg -> ctx.env.project.deps[pkg.name] = pkg.uuid, all_pkgs)
-        
-        # Do one final resolution with everything
-        global pkgs, deps_map = _resolve(ctx.io, ctx.env, ctx.registries, all_pkgs, PRESERVE_NONE, ctx.julia_version)
     else
         # Julia < 1.9, no weak dependency support
         pkgs, deps_map = _resolve(ctx.io, ctx.env, ctx.registries, pkgs, PRESERVE_NONE, ctx.julia_version)

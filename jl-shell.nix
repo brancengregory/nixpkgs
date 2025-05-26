@@ -48,16 +48,6 @@ let
  
   jlconf = pkgs.julia.withPackages [ 
     "Plots"
-	"ConstructionBase"
-	"ChainRulesCore"
-	"DataFrames"
-	"InverseFunctions"
-	"SymEngine"
-	"IntervalSets"
-	"StaticArrays"
-	"FileIO"
-	"IJulia"
-	"ImageInTerminal"
   ];
   
   system_packages = builtins.attrValues {
