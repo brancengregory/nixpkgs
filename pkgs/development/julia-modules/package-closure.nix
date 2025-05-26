@@ -9,18 +9,7 @@
 , packageImplications
 }:
 
-let
-  # Define blacklist at the top level
-  blacklistedPackages = ["Atom" "FlameGraphs" "BenchmarkTools" "ProfileView" "Juno" "TracyProfiler_jll" "Cthulhu" "Debugger" "Revise"];
-  
-  # Filter blacklisted packages from packageNames
-  filteredPackageNames = lib.filter (name: !(builtins.elem name blacklistedPackages)) packageNames;
-  
-  # Filter blacklisted packages from packageImplications
-  filteredPackageImplications = lib.mapAttrs (name: deps: 
-    lib.filter (dep: !(builtins.elem dep blacklistedPackages)) deps
-  ) packageImplications;
-  
+let 
   # The specific package resolution code depends on the Julia version
   # These are pretty similar and could be combined to reduce duplication
   resolveCode = if lib.versionOlder julia.version "1.7" then resolveCode1_6 else resolveCode1_8;
