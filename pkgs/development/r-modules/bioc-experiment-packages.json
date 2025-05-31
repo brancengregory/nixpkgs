@@ -555,6 +555,12 @@
       "sha256": "0rmp259r5n0dqf8zn9wwfqlcbdan1qs3ni0f4izv4nj3mym435y9",
       "depends": ["ExperimentHub", "S4Vectors", "SummarizedExperiment"]
     },
+    "Hiiragi2013": {
+      "name": "Hiiragi2013",
+      "version": "1.44.1",
+      "sha256": "1r8r7nbrj2qzzzsffvjal28bc7443znj3qnbk8sxfv1rq3yjql9y",
+      "depends": ["Biobase", "KEGGREST", "MASS", "RColorBrewer", "affy", "boot", "clue", "cluster", "genefilter", "geneplotter", "gplots", "gtools", "lattice", "latticeExtra", "mouse4302_db", "xtable"]
+    },
     "HumanAffyData": {
       "name": "HumanAffyData",
       "version": "1.34.0",
@@ -2471,8 +2477,8 @@
     },
     "systemPipeRdata": {
       "name": "systemPipeRdata",
-      "version": "2.12.0",
-      "sha256": "04xxwdcznxdhxhmn73b9njj0mrd5bn3bwznnx5wf3p5qkfdckl9g",
+      "version": "2.12.2",
+      "sha256": "12vxhm096gwy026gnh1ql1749gpxdsch70x3bc2a2pcnc74kk2hf",
       "depends": ["BiocGenerics", "Biostrings", "jsonlite", "remotes"]
     },
     "tartare": {
@@ -2630,13 +2636,6 @@
       "version": "1.8.0",
       "sha256": "1r2kshwi8iajk0rwzkccdw389ffvkzivg82f4bri3xw0sq57fm50",
       "depends": ["AnnotationDbi", "Biobase", "GGBase", "illuminaHumanv1_db", "snpStats"],
-      "broken": true
-    },
-    "Hiiragi2013": {
-      "name": "Hiiragi2013",
-      "version": "1.41.0",
-      "sha256": "0z8ns2qsnng3kvzcris3hxggy1jmzrl8jwy0ndf6sbn1cqj1pnkl",
-      "depends": ["Biobase", "KEGGREST", "MASS", "RColorBrewer", "affy", "boot", "clue", "cluster", "genefilter", "geneplotter", "gplots", "gtools", "lattice", "latticeExtra", "mouse4302_db", "xtable"],
       "broken": true
     },
     "MAQCsubsetAFX": {
