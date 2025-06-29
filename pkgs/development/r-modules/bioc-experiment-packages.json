@@ -899,8 +899,8 @@
     },
     "PhyloProfileData": {
       "name": "PhyloProfileData",
-      "version": "1.22.0",
-      "sha256": "0zbs9aaf8xmz3is9vf54d0iib00ypa6vly5s207dbcj7l1x4h0yc",
+      "version": "1.22.3",
+      "sha256": "0bc702idbsnqs2fga4jd9qwqphc0hrv3j1hidwz26awkfwb8yv59",
       "depends": ["BiocStyle", "Biostrings", "ExperimentHub"]
     },
     "ProData": {
