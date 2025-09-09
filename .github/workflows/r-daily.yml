@@ -33,7 +33,7 @@ jobs:
       
       - name: Ensure libwebp in ragg deps until merged in upstream/master
         run: |
-          sed -i '/ragg =/,/]/ {/libwebp/! s/]/  libwebp\n      ]/}' pkgs/development/r-modules/default.nix
+          sed -i '/ragg =/,/]/ {/pkgs.libwebp/! s/]/  pkgs.libwebp\n      ]/}' pkgs/development/r-modules/default.nix
 
       - name: Updating files
         run: |
