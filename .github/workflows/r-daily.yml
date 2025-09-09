@@ -31,31 +31,9 @@ jobs:
           git fetch upstream
           git reset --hard upstream/master
       
-      #- name: Fix for S4Vectors (only for darwin, https://github.com/Bioconductor/S4Vectors/commit/31853e4e97ff6bc3a8a2e0fdcc6dde72fb61c045) and sf, terra, vap our
-      #  run: |
-      #    sed -i '/flowClust = old/a \
-      #      S4Vectors = old.S4Vectors.overrideAttrs (attrs: {\
-      #          hardeningDisable = [ "format" ];\
-      #      });\
-      #      S4Arrays = old.S4Arrays.overrideAttrs (attrs: {\
-      #          hardeningDisable = [ "format" ];\
-      #      });\
-      #      XVector = old.XVector.overrideAttrs (attrs: {\
-      #          hardeningDisable = [ "format" ];\
-      #      });\
-      #      SparseArray = old.SparseArray.overrideAttrs (attrs: {\
-      #          hardeningDisable = [ "format" ];\
-      #      });\
-      #      Rsamtools = old.Rsamtools.overrideAttrs (attrs: {\
-      #          hardeningDisable = [ "format" ];\
-      #      });\
-      #        rtracklayer = old.rtracklayer.overrideAttrs (attrs: {\
-      #          hardeningDisable = [ "format" ];\
-      #      });\
-      #        VariantAnnotation = old.VariantAnnotation.overrideAttrs (attrs: {\
-      #          hardeningDisable = [ "format" ];\
-      #      });\
-      #    ' pkgs/development/r-modules/default.nix
+      - name: Ensure libwebp in ragg deps until merged in upstream/master
+        run: |
+          sed -i '/ragg =/,/]/ {/libwebp/! s/]/  libwebp\n      ]/}' pkgs/development/r-modules/default.nix
 
       - name: Updating files
         run: |
