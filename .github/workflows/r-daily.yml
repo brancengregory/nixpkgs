@@ -44,6 +44,21 @@ jobs:
             git cherry-pick --abort
           fi
 
+          
+      - name: Cherry-pick biocframe PR
+        run: |
+          set -e
+          # Fetch the PR from upstream
+          git fetch upstream pull/442161/head:pr-442161
+          # Try cherry-pick
+          if git cherry-pick pr-442161; then
+            echo "Cherry-pick successful"
+          else
+            echo "Cherry-pick failed, aborting"
+            git cherry-pick --abort
+          fi
+
+
       - name: Cherry-pick rds2py PR
         run: |
           set -e
