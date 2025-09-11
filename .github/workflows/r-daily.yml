@@ -42,6 +42,19 @@ jobs:
           #wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/r-daily.nix
           wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/cachix.nix
 
+      - name: Get ryxpress
+        run: |
+          wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/ryxpress_default.nix
+          mkdir pkgs/development/python-modules/ryxpress
+          mv ryxpress_default.nix pkgs/development/python-modules/ryxpress/default.nix
+
+      - name: Insert ryxpress in python-packages.nix
+        run: |
+          FILE="pkgs/top-level/python-packages.nix"
+          # Insert ryxpress after ryd-client
+          sed -i '/ryd-client = callPackage .*;/a \
+          \  ryxpress = callPackage ../development/python-modules/ryxpress { };' "$FILE"
+
           # get updated files from r-daily branch
           #cd pkgs/development/r-modules/
           #rm *-packages.json
