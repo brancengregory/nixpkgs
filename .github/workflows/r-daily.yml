@@ -56,7 +56,20 @@ jobs:
             echo "Cherry-pick failed, aborting"
             git cherry-pick --abort
           fi
-      
+
+      - name: Get ryxpress
+        run: |
+          wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/ryxpress_default.nix
+          mkdir pkgs/development/python-modules/ryxpress
+          mv ryxpress_default.nix pkgs/development/python-modules/ryxpress/default.nix
+
+      - name: Insert ryxpress in python-packages.nix
+        run: |
+          FILE="pkgs/top-level/python-packages.nix"
+          # Insert ryxpress after ryd-client
+          sed -i '/ryd-client = callPackage .*;/a \
+          \  ryxpress = callPackage ../development/python-modules/ryxpress { };' "$FILE"
+
       - name: Ensure libwebp in ragg deps until merged in upstream/master
         run: |
           sed -i '/ragg =/,/]/ {/pkgs.libwebp/! s/]/  pkgs.libwebp\n      ]/}' pkgs/development/r-modules/default.nix
