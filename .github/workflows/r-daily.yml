@@ -92,10 +92,10 @@ jobs:
           #wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/pkgs/development/r-modules/bioc-experiment-packages.json
 
       - name: Get ryxpress
-        run: |
-          wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/ryxpress_default.nix
-          mkdir pkgs/development/python-modules/ryxpress
-          mv ryxpress_default.nix pkgs/development/python-modules/ryxpress/default.nix
+        run: |      
+          mkdir -p pkgs/development/python-modules/ryxpress
+          cd pkgs/development/python-modules/ryxpress
+          wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/refs/heads/add_rixpress/pkgs/development/python-modules/ryxpress/default.nix
 
       - name: Insert ryxpress in python-packages.nix
         run: |
