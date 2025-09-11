@@ -30,6 +30,32 @@ jobs:
           git checkout r-daily-source
           git fetch upstream
           git reset --hard upstream/master
+          
+      - name: Cherry-pick biocutils PR
+        run: |
+          set -e
+          # Fetch the PR from upstream
+          git fetch upstream pull/442031/head:pr-442031
+          # Try cherry-pick
+          if git cherry-pick pr-442031; then
+            echo "Cherry-pick successful"
+          else
+            echo "Cherry-pick failed, aborting"
+            git cherry-pick --abort
+          fi
+
+      - name: Cherry-pick rds2py PR
+        run: |
+          set -e
+          # Fetch the PR from upstream
+          git fetch upstream pull/442058/head:pr-442058
+          # Try cherry-pick
+          if git cherry-pick pr-442058; then
+            echo "Cherry-pick successful"
+          else
+            echo "Cherry-pick failed, aborting"
+            git cherry-pick --abort
+          fi
       
       - name: Ensure libwebp in ragg deps until merged in upstream/master
         run: |
@@ -41,19 +67,6 @@ jobs:
           # start with environments
           #wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/r-daily.nix
           wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/cachix.nix
-
-      - name: Get ryxpress
-        run: |
-          wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/ryxpress_default.nix
-          mkdir pkgs/development/python-modules/ryxpress
-          mv ryxpress_default.nix pkgs/development/python-modules/ryxpress/default.nix
-
-      - name: Insert ryxpress in python-packages.nix
-        run: |
-          FILE="pkgs/top-level/python-packages.nix"
-          # Insert ryxpress after ryd-client
-          sed -i '/ryd-client = callPackage .*;/a \
-          \  ryxpress = callPackage ../development/python-modules/ryxpress { };' "$FILE"
 
           # get updated files from r-daily branch
           #cd pkgs/development/r-modules/
