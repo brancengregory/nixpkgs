@@ -16285,6 +16285,7 @@ self: super: with self; {
   rxv = callPackage ../development/python-modules/rxv { };
 
   ryd-client = callPackage ../development/python-modules/ryd-client { };
+  ryxpress = callPackage ../development/python-modules/ryxpress { };
 
   rzpipe = callPackage ../development/python-modules/rzpipe { };
 
