@@ -993,8 +993,10 @@ let
       which
     ];
     textshaping = [ pkgs.pkg-config ];
-    ragg = [ pkgs.pkg-config ];
-    qqconf = [ pkgs.pkg-config ];
+    ragg = [ pkgs.pkg-config   pkgs.libwebp
+      ];
+    qqconf = [ pkgs.pkg-config   pkgs.libwebp
+      ];
     qspray = [ pkgs.pkg-config ];
     ratioOfQsprays = [ pkgs.pkg-config ];
     watcher = with pkgs; [
@@ -1464,6 +1466,7 @@ let
         zlib.dev
         libjpeg.dev
         bzip2.dev
+        pkgs.libwebp
       ]
       ++ lib.optional stdenv.hostPlatform.isDarwin lerc.dev;
     qqconf = [ pkgs.fftw.dev ];
