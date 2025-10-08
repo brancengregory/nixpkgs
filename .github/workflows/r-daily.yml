@@ -87,7 +87,7 @@ jobs:
         run: |      
           mkdir -p pkgs/development/python-modules/talvez
           cd pkgs/development/python-modules/talvez
-          wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/refs/heads/add_rixpress/pkgs/development/python-modules/talvez/default.nix
+          wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/refs/heads/add_talvez/pkgs/development/python-modules/talvez/default.nix
 
       - name: Insert ryxpress in python-packages.nix
         run: |
