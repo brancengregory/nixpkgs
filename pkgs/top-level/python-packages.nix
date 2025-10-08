@@ -18031,6 +18031,8 @@ self: super: with self; {
 
   takethetime = callPackage ../development/python-modules/takethetime { };
 
+  talvez = callPackage ../development/python-modules/talvez { };
+
   tami4edgeapi = callPackage ../development/python-modules/tami4edgeapi { };
 
   tank-utility = callPackage ../development/python-modules/tank-utility { };
