@@ -83,12 +83,25 @@ jobs:
           cd pkgs/development/python-modules/ryxpress
           wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/refs/heads/add_rixpress/pkgs/development/python-modules/ryxpress/default.nix
 
+      - name: Get talvez
+        run: |      
+          mkdir -p pkgs/development/python-modules/talvez
+          cd pkgs/development/python-modules/talvez
+          wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/refs/heads/add_rixpress/pkgs/development/python-modules/talvez/default.nix
+
       - name: Insert ryxpress in python-packages.nix
         run: |
           FILE="pkgs/top-level/python-packages.nix"
           # Insert ryxpress after ryd-client
           sed -i '/ryd-client = callPackage .*;/a \
           \  ryxpress = callPackage ../development/python-modules/ryxpress { };' "$FILE"
+
+      - name: Insert talvez in python-packages.nix
+        run: |
+          FILE="pkgs/top-level/python-packages.nix"
+          # Insert talvez after takethetime
+          sed -i '/takethetime = callPackage .*;/a \
+          \  talvez = callPackage ../development/python-modules/talvez { };' "$FILE"
    
       - name: Get patches for Bioc devel
         run: |
