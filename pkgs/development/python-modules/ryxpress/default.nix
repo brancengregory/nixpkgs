@@ -8,14 +8,14 @@
 
 buildPythonPackage rec {
   pname = "ryxpress";
-  version = "0.0.2";
+  version = "0.0.9";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "b-rodrigues";
     repo = "ryxpress";
     tag = "v${version}";
-    hash = "sha256-6T+7cji8lcCq7Csj7M8919Uv9rS0yeYJRgSmJHRLin0=";
+    hash = "sha256-nK5S3a1YGreq5jjzYBd/QS7WhEDQpUUEoyEMiHGoWTQ=";
   };
 
   build-system = [ setuptools ];
