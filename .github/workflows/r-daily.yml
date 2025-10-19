@@ -44,6 +44,19 @@ jobs:
             git cherry-pick --abort
           fi
 
+      - name: Cherry-pick julia 1.12 PR
+        run: |
+          set -e
+          # Fetch the PR from upstream
+          git fetch upstream pull/450240/head:pr-450240
+          # Try cherry-pick
+          if git cherry-pick pr-450240; then
+            echo "Cherry-pick successful"
+          else
+            echo "Cherry-pick failed, aborting"
+            git cherry-pick --abort
+          fi
+
       - name: Ensure libwebp in ragg deps until merged in upstream/master
         run: |
           sed -i '/ragg =/,/]/ {/pkgs.libwebp/! s/]/  pkgs.libwebp\n      ]/}' pkgs/development/r-modules/default.nix
