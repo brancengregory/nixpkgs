@@ -95,7 +95,7 @@ jobs:
 
       - name: Update R to 4.5.2 until merged in master
         run: |
-          sed -i 's|sha256 = "sha256-tCp5IUADhmRbEBBbkcaHKHh9tcTIPJ9sMKzc5jLhu3A=";|sha256 = "sha256-h6Qc6bUOCW3SxCgvSO/qMMmRb8t7Fn+ivJiMnPPLZkI=";|' pkgs/applications/science/math/R/default.nix
+          sed -i 's|hash = "sha256-tCp5IUADhmRbEBBbkcaHKHh9tcTIPJ9sMKzc5jLhu3A=";|hash = "sha256-h6Qc6bUOCW3SxCgvSO/qMMmRb8t7Fn+ivJiMnPPLZkI=";|' pkgs/applications/science/math/R/default.nix
           sed -i 's|version = "4.5.1";|version = "4.5.2";|' pkgs/applications/science/math/R/default.nix
 
       - name: Install Nix
