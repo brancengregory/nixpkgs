@@ -44,10 +44,6 @@ jobs:
             git cherry-pick --abort
           fi
 
-      - name: Ensure libwebp in ragg deps until merged in upstream/master
-        run: |
-          sed -i '/ragg =/,/]/ {/pkgs.libwebp/! s/]/  pkgs.libwebp\n      ]/}' pkgs/development/r-modules/default.nix
-
       - name: Updating files
         run: |
           wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/.github/workflows/update-cachix.yml -P .github/workflows/
@@ -93,10 +89,22 @@ jobs:
         run: |
           wget https://raw.githubusercontent.com/rstats-on-nix/nixpkgs/r-daily/bioc_devel.patch
 
-      - name: Update R to 4.5.2 until merged in master
+     # - name: Update R to 4.5.2 until merged in master
+     #   run: |
+     #     sed -i 's|hash = "sha256-tCp5IUADhmRbEBBbkcaHKHh9tcTIPJ9sMKzc5jLhu3A=";|hash = "sha256-DXH/cQbsac18Z+HpXtGjzuNViAkx8ut4xTABSp43nyA=";|' pkgs/applications/science/math/R/default.nix
+     #     sed -i 's|version = "4.5.1";|version = "4.5.2";|' pkgs/applications/science/math/R/default.nix
+
+      - name: Cherry-pick R bump
         run: |
-          sed -i 's|hash = "sha256-tCp5IUADhmRbEBBbkcaHKHh9tcTIPJ9sMKzc5jLhu3A=";|hash = "sha256-DXH/cQbsac18Z+HpXtGjzuNViAkx8ut4xTABSp43nyA=";|' pkgs/applications/science/math/R/default.nix
-          sed -i 's|version = "4.5.1";|version = "4.5.2";|' pkgs/applications/science/math/R/default.nix
+          set -e
+          git fetch upstream
+          if git cherry-pick a65b87c485e1227152f23b979d499e1b553b4655^..9d7bcf3b9443a55f68333311fd1de2fc55609214; then
+            echo "Cherry-pick successful"
+          else
+            echo "Cherry-pick failed — aborting"
+            git cherry-pick --abort
+          exit 1
+          fi
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
