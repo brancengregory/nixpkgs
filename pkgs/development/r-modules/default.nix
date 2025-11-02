@@ -548,6 +548,10 @@ let
     gsl = [ pkgs.gsl ];
     gslnls = [ pkgs.gsl ];
     gert = [ pkgs.libgit2 ];
+    h3o = with pkgs; [
+      cargo
+      rustc
+    ];
     haven = with pkgs; [ zlib.dev ];
     hellorust = [ pkgs.cargo ];
     hgwrr = [ pkgs.gsl ];
@@ -1819,6 +1823,10 @@ let
     });
 
     cartogramR = old.cartogramR.overrideAttrs (attrs: {
+      postPatch = "patchShebangs configure";
+    });
+
+    h3o = old.h3o.overrideAttrs (attrs: {
       postPatch = "patchShebangs configure";
     });
 
