@@ -1521,6 +1521,12 @@
       "sha256": "0bmbp7kydvviczw8axgxq2wdlwq6fdas90jk9bg56avjq5syws2g",
       "depends": ["AnnotationDbi", "GenomicFeatures"]
     },
+    "TxDb_Hsapiens_UCSC_hg19_refGene": {
+      "name": "TxDb.Hsapiens.UCSC.hg19.refGene",
+      "version": "3.22.0",
+      "sha256": "0l2fpmyacyf644pkrrf35gsdpfplk4i9009miqbfg6p09gm5815p",
+      "depends": ["AnnotationDbi", "GenomicFeatures"]
+    },
     "TxDb_Hsapiens_UCSC_hg38_knownGene": {
       "name": "TxDb.Hsapiens.UCSC.hg38.knownGene",
       "version": "3.22.0",
