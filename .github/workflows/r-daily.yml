@@ -98,7 +98,7 @@ jobs:
         run: |
           set -e
           git fetch upstream
-          if git cherry-pick a65b87c485e1227152f23b979d499e1b553b4655^..ad0a16337834148ab52fff49e2901745d3e9c12a; then
+          if git cherry-pick -m 1 a65b87c485e1227152f23b979d499e1b553b4655^..ad0a16337834148ab52fff49e2901745d3e9c12a; then
             echo "Cherry-pick successful"
           else
             echo "Cherry-pick failed — aborting"
