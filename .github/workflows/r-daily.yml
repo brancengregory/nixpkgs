@@ -106,6 +106,18 @@ jobs:
           exit 1
           fi
 
+      - name: Cherry-pick rstudio
+        run: |
+          set -e
+          git fetch upstream
+          if git cherry-pick 7d0640e3885547037e1ec04e6fd203e56d637938^..e4f1fe385ed8865399682eb40d946308e380cadf; then
+            echo "Cherry-pick successful"
+          else
+            echo "Cherry-pick failed — aborting"
+            git cherry-pick --abort
+          exit 1
+          fi
+
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
         with:
