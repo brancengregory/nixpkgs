@@ -35,7 +35,7 @@ jobs:
         run: |
           set -e
           git fetch upstream
-          if git cherry-pick -m 1 a65b87c485e1^..ad0a16337834; then
+          if git cherry-pick --empty=drop -m 1 a65b87c485e1^..ad0a16337834; then
             echo "Cherry-pick successful"
           else
             echo "Cherry-pick failed — aborting"
