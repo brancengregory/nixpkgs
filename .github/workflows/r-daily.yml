@@ -31,17 +31,17 @@ jobs:
           git fetch upstream
           git reset --hard upstream/master
 
-      - name: Cherry-pick R bump
-        run: |
-          set -e
-          git fetch upstream
-          if git cherry-pick --empty=drop -m 1 a65b87c485e1^..ad0a16337834; then
-            echo "Cherry-pick successful"
-          else
-            echo "Cherry-pick failed — aborting"
-            git cherry-pick --abort
-            exit 1
-          fi
+      #- name: Cherry-pick R bump
+      #  run: |
+      #    set -e
+      #    git fetch upstream
+      #    if git cherry-pick --empty=drop -m 1 a65b87c485e1^..ad0a16337834; then
+      #      echo "Cherry-pick successful"
+      #    else
+      #      echo "Cherry-pick failed — aborting"
+      #      git cherry-pick --abort
+      #      exit 1
+      #    fi
           
       - name: Cherry-pick phart PR
         run: |
