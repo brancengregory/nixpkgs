@@ -156,6 +156,9 @@ jobs:
 
           mv "$FILE.tmp" "$FILE"
 
+      - name: Check cran-packages.json
+        run: grep -n -A6 -B1 '"BiocManager":' pkgs/development/r-modules/cran-packages.json
+
       - name: Update R packages
         run: |
           cd pkgs/development/r-modules/
