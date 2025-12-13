@@ -149,12 +149,13 @@ jobs:
         run: |
           FILE="pkgs/development/r-modules/cran-packages.json"
 
-          jq '
-            .BiocManager.version = "1.30.27"
-            | .BiocManager.sha256 = "1dgv0gfa7ff3w96dax8p7jna1bf2652sav2mhn82gj02jvqdrgxc"
-          ' "$FILE" > "$FILE.tmp"
+          sed -i '
+            /"BiocManager": {/,/}/ {
+              s|"version": "1\.30\.26"|"version": "1.30.27"|
+              s|"sha256": ".*"|"sha256": "1dgv0gfa7ff3w96dax8p7jna1bf2652sav2mhn82gj02jvqdrgxc"|
+            }
+          ' "$FILE"
 
-          mv "$FILE.tmp" "$FILE"
 
       - name: Check cran-packages.json
         run: grep -n -A6 -B1 '"BiocManager":' pkgs/development/r-modules/cran-packages.json
