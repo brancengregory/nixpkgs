@@ -3,7 +3,7 @@
 fetchFromGitHub {
   owner = "CodeDownIO";
   repo = "General";
-  rev = "4b19a1dc55d2877e85a5d0e98702b75872210e9d";
-  sha256 = "sha256-mVeBTpEQnW3fvJu1+4T8z+earMjEgtdy0tnZnAxz/pk=";
+  rev = "20b3e53279ed35df7cadc9b91e79445d05e48695";
+  sha256 = "1ripvb39i1blxmi3q51nlf689rqlpng4ch4yciwfln1iflg16yp5";
   # date = "2025-08-12T05:20:40+00:00";
 }
