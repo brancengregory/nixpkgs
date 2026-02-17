@@ -61,7 +61,6 @@ stdenv.mkDerivation (finalAttrs: {
     else
       "--with-blas=\"-L${blas}/lib -lblas\" --with-lapack=\"-L${lapack}/lib -llapack\""
     }
-      --with-lapack="-L${lapack}/lib -llapack"
       --with-readline
       --with-tcltk --with-tcl-config="${tcl}/lib/tclConfig.sh" --with-tk-config="${tk}/lib/tkConfig.sh"
       --with-cairo
