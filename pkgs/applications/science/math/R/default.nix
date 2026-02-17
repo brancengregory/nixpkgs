@@ -159,7 +159,7 @@ stdenv.mkDerivation (finalAttrs: {
     --without-x
     OBJC="clang"
     CPPFLAGS="-isystem ${lib.getInclude stdenv.cc.libcxx}/include/c++/v1"
-    LDFLAGS="-L${lib.getLib stdenv.cc.libcxx}/lib -L${lib.getLib gfortran.cc}/lib"
+    LDFLAGS="-L${lib.getLib stdenv.cc.libcxx}/lib -L$(dirname $(${gfortran}/bin/gfortran -print-file-name=libgfortran.a))"
   + ''
     )
     echo >>etc/Renviron.in "TCLLIBPATH=${tk}/lib"
