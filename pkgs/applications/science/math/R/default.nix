@@ -128,13 +128,8 @@ stdenv.mkDerivation (finalAttrs: {
   dontDisableStatic = static;
 
   preConfigure = ''
-  # pre-cache Fortran test to bypass un-runnable configure test on macOS 15
-  echo "r_cv_prog_fc_works=yes" >> config.cache
-  echo "r_cv_have_fortran=yes" >> config.cache
-'' + ''
     configureFlagsArray=(
       --disable-lto
-      --cache-file=config.cache
       --with${lib.optionalString (!withRecommendedPackages) "out"}-recommended-packages
       --with-blas="-L${blas}/lib -lblas"
       --with-lapack="-L${lapack}/lib -llapack"
@@ -158,13 +153,13 @@ stdenv.mkDerivation (finalAttrs: {
       CURL_CONFIG="${lib.getExe' (lib.getDev curl) "curl-config"}"
       r_cv_have_curl728=yes
       R_SHELL="${stdenv.shell}"
+  ''
   + lib.optionalString stdenv.hostPlatform.isDarwin ''
     --disable-R-framework
     --without-x
     OBJC="clang"
     CPPFLAGS="-isystem ${lib.getInclude stdenv.cc.libcxx}/include/c++/v1"
-    LDFLAGS="-L${lib.getLib stdenv.cc.libcxx}/lib"
-  ''
+    LDFLAGS="-L${lib.getLib stdenv.cc.libcxx}/lib -L${lib.getLib gfortran.cc}/lib" 
   + ''
     )
     echo >>etc/Renviron.in "TCLLIBPATH=${tk}/lib"
