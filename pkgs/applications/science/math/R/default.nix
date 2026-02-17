@@ -1,6 +1,6 @@
 { lib, stdenv, fetchurl, bzip2, gfortran, libX11, libXmu, libXt, libjpeg, libpng
 , libtiff, ncurses, pango, pcre2, perl, readline, tcl, texlive, texliveSmall, tk, xz, zlib
-, less, texinfo, graphviz, icu, pkg-config, bison, imake, which, jdk, blas, lapack
+, less, texinfo, graphviz, icu, pkg-config, openblas, bison, imake, which, jdk, blas, lapack
 , curl, Cocoa, Foundation, libobjc, libcxx, tzdata
 , withRecommendedPackages ? true
 , enableStrictBarrier ? false
@@ -33,7 +33,7 @@ stdenv.mkDerivation (finalAttrs: {
     bzip2 gfortran libX11 libXmu libXt libXt libjpeg libpng libtiff ncurses
     pango pcre2 perl readline (texliveSmall.withPackages (ps: with ps; [ inconsolata helvetic ps.texinfo fancyvrb cm-super rsfs ])) xz zlib less texinfo graphviz icu
     bison imake which blas lapack curl tcl tk jdk tzdata
-  ] ++ lib.optionals stdenv.hostPlatform.isDarwin [ Cocoa Foundation libobjc libcxx ];
+  ] ++ lib.optionals stdenv.hostPlatform.isDarwin [ Cocoa Foundation libobjc libcxx openblas ];
 
   patches = [
     ./no-usr-local-search-paths.patch
@@ -56,7 +56,11 @@ stdenv.mkDerivation (finalAttrs: {
     configureFlagsArray=(
       --disable-lto
       --with${lib.optionalString (!withRecommendedPackages) "out"}-recommended-packages
-      --with-blas="-L${blas}/lib -lblas"
+    ${if stdenv.hostPlatform.isDarwin then
+      "--with-blas=-lopenblas --with-lapack"
+    else
+      "--with-blas=\"-L${blas}/lib -lblas\" --with-lapack=\"-L${lapack}/lib -llapack\""
+    }
       --with-lapack="-L${lapack}/lib -llapack"
       --with-readline
       --with-tcltk --with-tcl-config="${tcl}/lib/tclConfig.sh" --with-tk-config="${tk}/lib/tkConfig.sh"
