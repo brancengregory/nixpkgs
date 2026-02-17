@@ -87,7 +87,7 @@ stdenv.mkDerivation (finalAttrs: {
       --without-x
       OBJC="clang"
       CPPFLAGS="-isystem ${lib.getDev libcxx}/include/c++/v1"
-      LDFLAGS="-L${lib.getLib libcxx}/lib"
+      LDFLAGS="-L${lib.getLib stdenv.cc.libcxx}/lib -L${lib.getLib gfortran}/lib"
   '' + ''
     )
     echo >>etc/Renviron.in "TCLLIBPATH=${tk}/lib"
