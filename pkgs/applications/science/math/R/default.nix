@@ -128,6 +128,10 @@ stdenv.mkDerivation (finalAttrs: {
   dontDisableStatic = static;
 
   preConfigure = ''
+  # pre-cache Fortran test to bypass un-runnable configure test on macOS 15
+  echo "r_cv_prog_fc_works=yes" >> config.cache
+  echo "r_cv_have_fortran=yes" >> config.cache
+'' + ''
     configureFlagsArray=(
       --disable-lto
       --with${lib.optionalString (!withRecommendedPackages) "out"}-recommended-packages
@@ -160,7 +164,6 @@ stdenv.mkDerivation (finalAttrs: {
     OBJC="clang"
     CPPFLAGS="-isystem ${lib.getInclude stdenv.cc.libcxx}/include/c++/v1"
     LDFLAGS="-L${lib.getLib stdenv.cc.libcxx}/lib"
-    FLIBS="-L$(dirname $(${gfortran}/bin/gfortran -print-file-name=libgfortran.a)) -lgfortran"
   + ''
     )
     echo >>etc/Renviron.in "TCLLIBPATH=${tk}/lib"
