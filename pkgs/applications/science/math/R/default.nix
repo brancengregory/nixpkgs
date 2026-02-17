@@ -158,13 +158,13 @@ stdenv.mkDerivation (finalAttrs: {
       CURL_CONFIG="${lib.getExe' (lib.getDev curl) "curl-config"}"
       r_cv_have_curl728=yes
       R_SHELL="${stdenv.shell}"
-  ''
   + lib.optionalString stdenv.hostPlatform.isDarwin ''
     --disable-R-framework
     --without-x
     OBJC="clang"
     CPPFLAGS="-isystem ${lib.getInclude stdenv.cc.libcxx}/include/c++/v1"
     LDFLAGS="-L${lib.getLib stdenv.cc.libcxx}/lib"
+  ''
   + ''
     )
     echo >>etc/Renviron.in "TCLLIBPATH=${tk}/lib"
