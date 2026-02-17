@@ -134,6 +134,7 @@ stdenv.mkDerivation (finalAttrs: {
 '' + ''
     configureFlagsArray=(
       --disable-lto
+      --cache-file=config.cache
       --with${lib.optionalString (!withRecommendedPackages) "out"}-recommended-packages
       --with-blas="-L${blas}/lib -lblas"
       --with-lapack="-L${lapack}/lib -llapack"
