@@ -1,6 +1,6 @@
 {
   "extraArgs": {
-    "biocVersion": "3.22"
+    "biocVersion": "3.23"
   },
   "packages": {
     "AHCytoBands": {
@@ -737,8 +737,8 @@
     },
     "BioMartGOGeneSets": {
       "name": "BioMartGOGeneSets",
-      "version": "0.99.11",
-      "sha256": "1ack8v1q0zg15gs816n9f4pwrzrpsv4va6j0r8847pw0pvavwpiq",
+      "version": "0.99.12",
+      "sha256": "11x00v18vd5ppm9asg120dmhmqamzsacy64v3kmmxfn7rhxl25b2",
       "depends": ["GenomicRanges", "S4Vectors"]
     },
     "CENTREannotation": {
@@ -749,8 +749,8 @@
     },
     "CTCF": {
       "name": "CTCF",
-      "version": "0.99.13",
-      "sha256": "097w2rad5fxyg2dkghz6ws93q1l7hlc6f9dnw1n30gs2bdv5hbyb",
+      "version": "0.99.14",
+      "sha256": "06nyz5758mq04hzvc7bl0ld2d173zabs9xyhva01y92b19yy8nfp",
       "depends": []
     },
     "ChemmineDrugs": {
@@ -893,8 +893,8 @@
     },
     "GeneSummary": {
       "name": "GeneSummary",
-      "version": "0.99.6",
-      "sha256": "0h6afrjb00afrcw6mwslxp7cmwfzp4qfxh0aa4f41kfjd3cymmp5",
+      "version": "0.99.7",
+      "sha256": "0pl843r230cgq0nh5pwp19zz823dwdv789kfcgdhylijx3h2ymfk",
       "depends": []
     },
     "GenomeInfoDbData": {
@@ -1673,8 +1673,8 @@
     },
     "UniProtKeywords": {
       "name": "UniProtKeywords",
-      "version": "0.99.7",
-      "sha256": "10id2lk2mbccay7p44pk58zhkiqc58x237qr76plivgpcc8xhjzq",
+      "version": "0.99.8",
+      "sha256": "1mhbhar70acwgjmlfkfrqc2hskqvbgsaf9xlzv8ph66x6gvbyqb7",
       "depends": []
     },
     "XtraSNPlocs_Hsapiens_dbSNP144_GRCh37": {
@@ -2093,8 +2093,8 @@
     },
     "excluderanges": {
       "name": "excluderanges",
-      "version": "0.99.10",
-      "sha256": "0j9njpnbh731ffimr1sbvix3wsivnh9nwxg6sbrpwp8gl0pnl7r0",
+      "version": "0.99.11",
+      "sha256": "1czr9hr84hzwa7fyzm51425nphy0b9h5yfvgkij5v8qgq565w02a",
       "depends": ["GenomicRanges"]
     },
     "fitCons_UCSC_hg19": {
